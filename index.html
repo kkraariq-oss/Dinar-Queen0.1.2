@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
 <title>دينار كوين - العملة الرقمية العراقية الأولى | Dinar Coin</title>
 <meta name="description" content="انضم الآن إلى منصة دينار كوين، أول عملة رقمية عراقية وعربية. احجز مكانك قبل الانطلاق الرسمي!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 /* ============================================
-   DINAR COIN - LANDING PAGE V3.0
+   DINAR COIN - LANDING PAGE V4.0
    ============================================ */
 :root {
   --bg-deep: #091a11;
@@ -69,6 +69,7 @@ body::before{
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
 @keyframes borderGlow{0%,100%{border-color:rgba(212,175,55,0.2)}50%{border-color:rgba(212,175,55,0.6)}}
 @keyframes ripple{0%{transform:scale(1);opacity:0.4}100%{transform:scale(2.5);opacity:0}}
+@keyframes slideUp{from{opacity:0;transform:translateY(60px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 
 .animate-on-scroll{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
 .animate-on-scroll.visible{opacity:1;transform:translateY(0)}
@@ -499,7 +500,213 @@ body::before{
 .mobile-menu a:hover{color:var(--gold-2)}
 .mobile-menu-close{position:absolute;top:20px;left:20px;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer}
 
-/* ======= RESPONSIVE ======= */
+/* ============================================
+   LIVE MARKET CHARTS SECTION
+   ============================================ */
+.markets-section{
+  background:var(--bg-dark);position:relative;overflow:hidden;
+}
+.markets-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 50% at 50% 0%,rgba(212,175,55,0.06),transparent 60%);
+  pointer-events:none;
+}
+.charts-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;
+  position:relative;z-index:2;
+}
+.chart-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:18px;
+  overflow:hidden;transition:all 0.4s;position:relative;
+}
+.chart-card:hover{border-color:var(--border-gold);transform:translateY(-4px)}
+.chart-card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px 8px;
+}
+.chart-card-title{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--font-display);font-weight:700;font-size:0.95rem;color:var(--white);
+}
+.chart-card-title i{font-size:1.2rem}
+.chart-card-title .btc-icon{color:#f7931a}
+.chart-card-title .eth-icon{color:#627eea}
+.chart-card-title .gold-icon{color:var(--gold-2)}
+.chart-card-title .oil-icon{color:#e74c3c}
+.chart-card-title .usd-icon{color:var(--green-3)}
+.chart-card-badge{
+  font-size:0.65rem;padding:4px 10px;border-radius:8px;font-weight:700;
+  background:rgba(42,223,122,0.1);color:var(--green-3);border:1px solid rgba(42,223,122,0.2);
+}
+.chart-iframe-wrap{
+  width:100%;height:280px;position:relative;
+}
+.chart-iframe-wrap iframe{
+  width:100%;height:100%;border:none;
+}
+
+/* ============================================
+   SIGNUP SECTION
+   ============================================ */
+.signup-section{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--bg-deep) 0%,rgba(13,74,45,0.15) 50%,var(--bg-deep) 100%);
+}
+.signup-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(212,175,55,0.06),transparent 60%);
+  pointer-events:none;
+}
+.signup-card{
+  max-width:560px;margin:0 auto;position:relative;z-index:2;
+  background:var(--bg-card-2);border:1px solid var(--border-gold);border-radius:28px;
+  padding:48px 36px;
+  box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 60px rgba(212,175,55,0.08);
+  animation:slideUp 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.signup-logo{
+  width:72px;height:72px;border-radius:18px;display:block;margin:0 auto 20px;
+  box-shadow:0 0 32px var(--gold-glow),0 0 8px var(--green-glow);
+  background:var(--bg-card);
+}
+.signup-title{
+  font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--white);
+  text-align:center;margin-bottom:6px;
+}
+.signup-subtitle{
+  text-align:center;font-size:0.88rem;color:var(--text-2);margin-bottom:32px;line-height:1.7;
+}
+.form-group{margin-bottom:18px;position:relative}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-label{
+  display:block;font-size:0.8rem;color:var(--text-2);margin-bottom:6px;font-weight:600;
+}
+.form-input{
+  width:100%;padding:14px 16px 14px 42px;
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;
+  color:var(--text-1);font-size:0.92rem;font-family:var(--font-body);
+  transition:all 0.3s;outline:none;
+}
+.form-input:focus{border-color:var(--gold-2);background:rgba(212,175,55,0.04);box-shadow:0 0 0 3px rgba(212,175,55,0.1)}
+.form-input::placeholder{color:var(--text-3)}
+.form-input.error{border-color:var(--red);background:rgba(231,76,60,0.04)}
+.form-icon{
+  position:absolute;top:38px;right:14px;color:var(--text-3);font-size:0.9rem;pointer-events:none;
+}
+.form-select{
+  width:100%;padding:14px 16px 14px 42px;
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;
+  color:var(--text-1);font-size:0.92rem;font-family:var(--font-body);
+  transition:all 0.3s;outline:none;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236a8a78' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:left 14px center;
+}
+.form-select:focus{border-color:var(--gold-2);background-color:rgba(212,175,55,0.04);box-shadow:0 0 0 3px rgba(212,175,55,0.1)}
+.form-select option{background:var(--bg-card);color:var(--text-1)}
+.phone-wrap{display:flex;gap:10px;align-items:flex-end}
+.phone-code{
+  flex-shrink:0;width:80px;padding:14px 8px;text-align:center;
+  background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);border-radius:12px;
+  color:var(--gold-2);font-size:0.92rem;font-weight:700;font-family:var(--font-body);
+  direction:ltr;
+}
+.phone-input-wrap{flex:1;position:relative}
+.password-hint{font-size:0.72rem;color:var(--text-3);margin-top:4px}
+.consent-wrap{
+  display:flex;align-items:flex-start;gap:10px;
+  margin:20px 0 10px;padding:14px;
+  background:rgba(212,175,55,0.04);border:1px solid var(--border);border-radius:12px;
+}
+.consent-wrap input[type="checkbox"]{
+  width:20px;height:20px;flex-shrink:0;margin-top:2px;
+  accent-color:var(--gold-2);cursor:pointer;
+}
+.consent-wrap label{font-size:0.82rem;color:var(--text-2);line-height:1.7;cursor:pointer}
+.consent-wrap label a{color:var(--gold-2);text-decoration:underline}
+.disclaimer-toggle{
+  background:none;border:none;color:var(--gold-2);font-size:0.8rem;font-weight:600;
+  cursor:pointer;margin-bottom:10px;display:flex;align-items:center;gap:6px;
+  font-family:var(--font-body);
+}
+.disclaimer-panel{
+  display:none;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:12px;
+  padding:18px;margin-bottom:16px;max-height:240px;overflow-y:auto;
+}
+.disclaimer-panel.open{display:block}
+.disclaimer-panel p{font-size:0.78rem;color:var(--text-3);line-height:1.9;margin-bottom:8px}
+.disclaimer-panel p:last-child{margin-bottom:0}
+.form-error{
+  font-size:0.78rem;color:var(--red);margin-top:4px;display:none;
+}
+.form-error.show{display:block}
+.signup-btn{
+  width:100%;padding:16px;border:none;border-radius:14px;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold-2),var(--gold-1));
+  color:var(--bg-deep);font-size:1.05rem;font-weight:800;font-family:var(--font-body);
+  box-shadow:0 8px 32px rgba(212,175,55,0.3);
+  transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:8px;
+}
+.signup-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(212,175,55,0.5)}
+.signup-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;box-shadow:none}
+.signup-btn .spinner{
+  width:20px;height:20px;border:3px solid rgba(0,0,0,0.2);
+  border-top-color:var(--bg-deep);border-radius:50%;
+  animation:spinSlow 0.8s linear infinite;display:none;
+}
+.signup-btn.loading .spinner{display:block}
+.signup-btn.loading .btn-text{display:none}
+.signup-back{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  color:var(--text-3);font-size:0.85rem;margin-top:20px;cursor:pointer;
+  background:none;border:none;font-family:var(--font-body);transition:color 0.3s;
+  width:100%;
+}
+.signup-back:hover{color:var(--gold-2)}
+.global-error{
+  background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);border-radius:12px;
+  padding:12px 16px;margin-bottom:16px;display:none;
+  font-size:0.85rem;color:#ff6b6b;text-align:center;
+}
+.global-error.show{display:block}
+
+/* ======= SUCCESS MODAL ======= */
+.success-overlay{
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(4,13,8,0.88);backdrop-filter:blur(12px);
+  display:none;align-items:center;justify-content:center;
+  animation:fadeIn 0.5s;
+}
+.success-overlay.show{display:flex}
+.success-modal{
+  background:var(--bg-card-2);border:1px solid var(--border-gold);border-radius:28px;
+  padding:48px 36px;max-width:440px;width:92%;text-align:center;
+  box-shadow:0 20px 80px rgba(0,0,0,0.6),0 0 80px rgba(212,175,55,0.1);
+  animation:slideUp 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.success-icon{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--green-2),var(--gold-2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.2rem;color:var(--bg-deep);
+  box-shadow:0 0 40px rgba(42,223,122,0.3);
+}
+.success-modal h2{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:8px}
+.success-modal p{font-size:0.9rem;color:var(--text-2);line-height:1.8;margin-bottom:20px}
+.success-reward{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(42,223,122,0.1);border:1px solid rgba(42,223,122,0.2);
+  padding:10px 24px;border-radius:12px;font-size:1.1rem;font-weight:800;color:var(--green-3);
+  margin-bottom:24px;
+}
+.success-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.success-buttons .btn-primary{font-size:0.9rem;padding:14px 28px}
+.success-buttons .btn-secondary{font-size:0.9rem;padding:14px 28px}
+
+/* ============================================
+   RESPONSIVE - ALL PHONE SIZES
+   ============================================ */
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;text-align:center}
   .hero-desc{margin:0 auto 36px}
@@ -515,13 +722,16 @@ body::before{
   .about-grid{grid-template-columns:1fr}
   .about-text{text-align:center}
   .highlight-item:hover{transform:none}
+  .charts-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
   .nav-links{display:none}
   .mobile-toggle{display:block}
-  .hero h1{font-size:2.2rem}
-  .section-header h2{font-size:2rem}
-  .supply-counter{font-size:3rem}
+  .hero{padding-top:100px;padding-bottom:60px}
+  .hero h1{font-size:2rem}
+  .section-header h2{font-size:1.8rem}
+  .section-padding{padding:70px 0}
+  .supply-counter{font-size:2.8rem}
   .features-grid{grid-template-columns:1fr}
   .incentives-grid{grid-template-columns:1fr}
   .steps-grid{grid-template-columns:1fr}
@@ -529,13 +739,59 @@ body::before{
   .comp-header,.comp-row{padding:12px 16px}
   .terms-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
-  .cta-content h2{font-size:1.8rem}
+  .cta-content h2{font-size:1.6rem}
   .floating-card{display:none}
+  .charts-grid{grid-template-columns:1fr}
+  .chart-iframe-wrap{height:260px}
+  .signup-card{padding:36px 22px;border-radius:22px;margin:0 8px}
+  .form-row{grid-template-columns:1fr}
+  .signup-title{font-size:1.3rem}
+  .container{padding:0 16px}
+  .hero-stats{gap:20px}
+  .hero-stat-value{font-size:1.3rem}
 }
-@media(max-width:400px){
-  .hero h1{font-size:1.8rem}
-  .hero-stats{flex-direction:column;gap:16px}
-  .btn-primary,.btn-secondary{width:100%;justify-content:center}
+@media(max-width:480px){
+  html{font-size:15px}
+  .hero h1{font-size:1.7rem}
+  .hero-desc{font-size:0.92rem}
+  .hero-actions{flex-direction:column;align-items:center}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:14px 24px;font-size:0.92rem}
+  .hero-stats{flex-wrap:wrap;gap:14px}
+  .hero-stat{min-width:80px}
+  .section-header h2{font-size:1.5rem}
+  .section-header p{font-size:0.88rem}
+  .about-card-value{font-size:2.8rem}
+  .about-card{padding:28px 20px}
+  .about-card-sub{gap:10px}
+  .feature-card{padding:24px 20px}
+  .incentive-card{padding:24px 18px}
+  .supply-counter{font-size:2.2rem}
+  .chart-iframe-wrap{height:240px}
+  .chart-card-header{padding:12px 14px 6px}
+  .signup-card{padding:30px 18px}
+  .success-modal{padding:36px 22px}
+  .cta-trust{gap:16px}
+  .trust-item{font-size:0.72rem}
+}
+@media(max-width:380px){
+  html{font-size:14px}
+  .hero{padding-top:90px;padding-bottom:50px}
+  .hero h1{font-size:1.5rem}
+  .container{padding:0 12px}
+  .section-padding{padding:56px 0}
+  .signup-card{padding:24px 14px}
+  .phone-wrap{flex-direction:column}
+  .phone-code{width:100%}
+  .about-card-sub{grid-template-columns:1fr}
+  .comp-header,.comp-row{grid-template-columns:1.5fr 1fr 1fr;padding:10px 12px;font-size:0.75rem}
+  .cta-content h2{font-size:1.3rem}
+}
+@media(max-width:320px){
+  html{font-size:13px}
+  .hero h1{font-size:1.35rem}
+  .signup-card{padding:20px 12px;border-radius:18px}
+  .form-input,.form-select{padding:12px 14px 12px 38px;font-size:0.85rem}
+  .signup-btn{padding:14px;font-size:0.95rem}
 }
 </style>
 </head>
@@ -563,6 +819,20 @@ body::before{
   </div>
 </div>
 
+<!-- SUCCESS MODAL -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-modal">
+    <div class="success-icon"><i class="fas fa-check"></i></div>
+    <h2>🎉 مرحباً بك في دينار كوين!</h2>
+    <p>شكراً لانضمامك إلى المرحلة التجريبية ودعمك للفكرة.<br>تم إنشاء حسابك بنجاح واستلمت مكافأة الترحيب.</p>
+    <div class="success-reward"><i class="fas fa-gift"></i> <span id="successBonus">+1.0 DC</span></div>
+    <div class="success-buttons">
+      <a href="index.html?from=landing" class="btn-primary"><i class="fas fa-external-link-alt"></i> <span>افتح التطبيق الآن</span></a>
+      <button onclick="closeSuccessModal()" class="btn-secondary"><i class="fas fa-arrow-right"></i> <span>العودة للصفحة</span></button>
+    </div>
+  </div>
+</div>
+
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
@@ -575,9 +845,10 @@ body::before{
     <div class="nav-links">
       <a href="#about">ما هو دينار كوين</a>
       <a href="#features">المميزات</a>
+      <a href="#markets">الأسواق</a>
       <a href="#roadmap">خارطة الطريق</a>
       <a href="#terms">الشروط</a>
-      <a href="#download" class="nav-cta"><i class="fas fa-download"></i> حمّل التطبيق</a>
+      <a href="#signup-beta" class="nav-cta"><i class="fas fa-user-plus"></i> سجّل الآن</a>
     </div>
     <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
   </div>
@@ -588,9 +859,10 @@ body::before{
   <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
   <a href="#about" onclick="toggleMobileMenu()">ما هو دينار كوين</a>
   <a href="#features" onclick="toggleMobileMenu()">المميزات</a>
+  <a href="#markets" onclick="toggleMobileMenu()">الأسواق</a>
   <a href="#roadmap" onclick="toggleMobileMenu()">خارطة الطريق</a>
   <a href="#terms" onclick="toggleMobileMenu()">الشروط</a>
-  <a href="#download" onclick="toggleMobileMenu()">حمّل التطبيق</a>
+  <a href="#signup-beta" onclick="toggleMobileMenu()">سجّل الآن</a>
 </div>
 
 <!-- HERO -->
@@ -614,7 +886,7 @@ body::before{
           <span style="color:var(--gold-3);font-weight:700">لا توجد ضمانات مالية أو استثمارية.</span>
         </p>
         <div class="hero-actions animate-on-scroll delay-3">
-          <a href="#download" class="btn-primary"><i class="fas fa-rocket"></i> ابدأ الآن مجاناً</a>
+          <a href="#signup-beta" class="btn-primary" id="startFreeBtn"><i class="fas fa-rocket"></i> ابدأ مجاناً</a>
           <a href="#about" class="btn-secondary"><i class="fas fa-play-circle"></i> تعرّف على المشروع</a>
         </div>
         <div class="hero-stats animate-on-scroll delay-4">
@@ -635,10 +907,8 @@ body::before{
       <div class="hero-visual animate-on-scroll delay-2">
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div style="position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <!-- Phone Frame -->
             <div style="width:180px;height:370px;background:linear-gradient(135deg,#222 60%,#333 100%);border-radius:38px;box-shadow:0 0 48px var(--gold-glow),0 0 12px var(--green-glow);border:4px solid var(--bg-card);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
               <img src="logo1.png" alt="App Screenshot" style="width:160px;height:340px;object-fit:cover;object-position:center;border-radius:30px;box-shadow:0 2px 16px rgba(0,0,0,0.18);background:var(--bg-card);">
-              <!-- Speaker/Camera Notch -->
               <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:48px;height:8px;background:#222;border-radius:6px;opacity:0.5;"></div>
               <div style="position:absolute;top:10px;right:30px;width:8px;height:8px;background:#444;border-radius:50%;opacity:0.7;"></div>
             </div>
@@ -719,22 +989,10 @@ body::before{
           نحن نبني منصة متكاملة تدعم اللغة العربية بالكامل، مع محفظة رقمية آمنة، ونظام إحالة يكافئ المجتمع، وبطاقة رقمية فريدة لكل مستخدم. كل شيء مصمم ليكون سهل الاستخدام حتى لمن ليس لديه خبرة سابقة.
         </p>
         <div class="about-highlights">
-          <div class="highlight-item">
-            <div class="highlight-icon g"><i class="fas fa-shield-alt"></i></div>
-            <span class="highlight-text">آمنة ومشفرة بتقنيات حديثة</span>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon o"><i class="fas fa-globe-americas"></i></div>
-            <span class="highlight-text">عربية 100% — واجهة وتجربة محلية</span>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon g"><i class="fas fa-users"></i></div>
-            <span class="highlight-text">مبنية على المجتمع — كلنا نربح</span>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon o"><i class="fas fa-chart-line"></i></div>
-            <span class="highlight-text">إمكانية نمو مستقبلي كعملة رسمية</span>
-          </div>
+          <div class="highlight-item"><div class="highlight-icon g"><i class="fas fa-shield-alt"></i></div><span class="highlight-text">آمنة ومشفرة بتقنيات حديثة</span></div>
+          <div class="highlight-item"><div class="highlight-icon o"><i class="fas fa-globe-americas"></i></div><span class="highlight-text">عربية 100% — واجهة وتجربة محلية</span></div>
+          <div class="highlight-item"><div class="highlight-icon g"><i class="fas fa-users"></i></div><span class="highlight-text">مبنية على المجتمع — كلنا نربح</span></div>
+          <div class="highlight-item"><div class="highlight-icon o"><i class="fas fa-chart-line"></i></div><span class="highlight-text">إمكانية نمو مستقبلي كعملة رسمية</span></div>
         </div>
       </div>
       <div class="about-visual animate-on-scroll delay-2">
@@ -742,22 +1000,10 @@ body::before{
           <div class="about-card-value" id="supplyCounter">1,000,000</div>
           <div class="about-card-label">إجمالي العملات المتاحة</div>
           <div class="about-card-sub">
-            <div class="about-sub-item">
-              <div class="val">1,000 IQD</div>
-              <div class="lbl">سعر العملة الواحدة</div>
-            </div>
-            <div class="about-sub-item">
-              <div class="val">+1.0 DC</div>
-              <div class="lbl">مكافأة الانضمام</div>
-            </div>
-            <div class="about-sub-item">
-              <div class="val">0.25 DC</div>
-              <div class="lbl">مكافأة كل 10 إحالات</div>
-            </div>
-            <div class="about-sub-item">
-              <div class="val">0.01 DC</div>
-              <div class="lbl">مكافأة يومية</div>
-            </div>
+            <div class="about-sub-item"><div class="val">1,000 IQD</div><div class="lbl">سعر العملة الواحدة</div></div>
+            <div class="about-sub-item"><div class="val">+1.0 DC</div><div class="lbl">مكافأة الانضمام</div></div>
+            <div class="about-sub-item"><div class="val">0.25 DC</div><div class="lbl">مكافأة كل 10 إحالات</div></div>
+            <div class="about-sub-item"><div class="val">0.01 DC</div><div class="lbl">مكافأة يومية</div></div>
           </div>
         </div>
       </div>
@@ -774,36 +1020,83 @@ body::before{
       <p>منصة متكاملة تجمع بين الأمان والسهولة والمكافآت</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card animate-on-scroll">
-        <div class="feature-icon gold"><i class="fas fa-wallet"></i></div>
-        <h3>محفظة رقمية آمنة</h3>
-        <p>محفظة مشفرة بالكامل لحفظ وإدارة عملاتك الرقمية بأمان تام. إرسال واستقبال فوري مع سجل معاملات كامل.</p>
+      <div class="feature-card animate-on-scroll"><div class="feature-icon gold"><i class="fas fa-wallet"></i></div><h3>محفظة رقمية آمنة</h3><p>محفظة مشفرة بالكامل لحفظ وإدارة عملاتك الرقمية بأمان تام. إرسال واستقبال فوري مع سجل معاملات كامل.</p></div>
+      <div class="feature-card animate-on-scroll delay-1"><div class="feature-icon green"><i class="fas fa-credit-card"></i></div><h3>بطاقة رقمية فريدة</h3><p>كل مستخدم يحصل على بطاقة رقمية بتصميم أنيق برقم فريد ورمز CVV. بطاقتك الخاصة في عالم دينار كوين.</p></div>
+      <div class="feature-card animate-on-scroll delay-2"><div class="feature-icon blue"><i class="fas fa-users-cog"></i></div><h3>نظام إحالة مجزي</h3><p>اربح 0.25 DC عن كل 10 إحالات ناجحة. شارك رمزك الخاص وابنِ شبكتك واحصل على مكافآت مستمرة.</p></div>
+      <div class="feature-card animate-on-scroll delay-1"><div class="feature-icon gold"><i class="fas fa-chart-bar"></i></div><h3>لوحة تحكم متقدمة</h3><p>تابع رصيدك وإحصائياتك ومخططات السوق في الوقت الحقيقي. تحليلات شاملة لأدائك المالي.</p></div>
+      <div class="feature-card animate-on-scroll delay-2"><div class="feature-icon green"><i class="fas fa-gift"></i></div><h3>مكافآت يومية</h3><p>احصل على 0.01 DC كل يوم بمجرد فتح التطبيق. بالإضافة إلى مكافأة ترحيبية 1.0 DC عند التسجيل.</p></div>
+      <div class="feature-card animate-on-scroll delay-3"><div class="feature-icon blue"><i class="fas fa-mobile-alt"></i></div><h3>تطبيق PWA متطور</h3><p>يعمل على جميع الأجهزة — هاتف، تابلت، حاسوب. لا يحتاج تحميل من المتجر، فقط افتح الرابط وابدأ!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     LIVE MARKET CHARTS SECTION
+     ============================================ -->
+<section class="markets-section section-padding" id="markets">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-chart-area"></i> الأسواق العالمية</div>
+      <h2>مخططات السوق اللحظية</h2>
+      <p>تابع أسعار أهم الأصول المالية والرقمية في الوقت الحقيقي</p>
+    </div>
+    <div class="charts-grid">
+
+      <!-- Bitcoin -->
+      <div class="chart-card animate-on-scroll">
+        <div class="chart-card-header">
+          <div class="chart-card-title"><i class="fab fa-bitcoin btc-icon"></i> بيتكوين BTC</div>
+          <div class="chart-card-badge">لحظي</div>
+        </div>
+        <div class="chart-iframe-wrap">
+          <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv_chart_btc&symbol=BINANCE%3ABTCUSDT&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=0c2418&studies=[]&theme=dark&style=2&timezone=Asia%2FBaghdad&withdateranges=0&showpopupbutton=0&studies_overrides=%7B%7D&overrides=%7B%22paneProperties.background%22%3A%22%230c2418%22%2C%22paneProperties.backgroundType%22%3A%22solid%22%7D&enabled_features=[]&disabled_features=%5B%22header_widget%22%5D&locale=ar&utm_source=&utm_medium=widget&utm_campaign=chart" allowtransparency="true" loading="lazy"></iframe>
+        </div>
       </div>
-      <div class="feature-card animate-on-scroll delay-1">
-        <div class="feature-icon green"><i class="fas fa-credit-card"></i></div>
-        <h3>بطاقة رقمية فريدة</h3>
-        <p>كل مستخدم يحصل على بطاقة رقمية بتصميم أنيق برقم فريد ورمز CVV. بطاقتك الخاصة في عالم دينار كوين.</p>
+
+      <!-- Ethereum -->
+      <div class="chart-card animate-on-scroll delay-1">
+        <div class="chart-card-header">
+          <div class="chart-card-title"><i class="fab fa-ethereum eth-icon"></i> إيثريوم ETH</div>
+          <div class="chart-card-badge">لحظي</div>
+        </div>
+        <div class="chart-iframe-wrap">
+          <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv_chart_eth&symbol=BINANCE%3AETHUSDT&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=0c2418&studies=[]&theme=dark&style=2&timezone=Asia%2FBaghdad&withdateranges=0&showpopupbutton=0&studies_overrides=%7B%7D&overrides=%7B%22paneProperties.background%22%3A%22%230c2418%22%2C%22paneProperties.backgroundType%22%3A%22solid%22%7D&enabled_features=[]&disabled_features=%5B%22header_widget%22%5D&locale=ar" allowtransparency="true" loading="lazy"></iframe>
+        </div>
       </div>
-      <div class="feature-card animate-on-scroll delay-2">
-        <div class="feature-icon blue"><i class="fas fa-users-cog"></i></div>
-        <h3>نظام إحالة مجزي</h3>
-        <p>اربح 0.25 DC عن كل 10 إحالات ناجحة. شارك رمزك الخاص وابنِ شبكتك واحصل على مكافآت مستمرة.</p>
+
+      <!-- Gold -->
+      <div class="chart-card animate-on-scroll delay-2">
+        <div class="chart-card-header">
+          <div class="chart-card-title"><i class="fas fa-coins gold-icon"></i> الذهب XAU/USD</div>
+          <div class="chart-card-badge">لحظي</div>
+        </div>
+        <div class="chart-iframe-wrap">
+          <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv_chart_gold&symbol=TVC%3AGOLD&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=0c2418&studies=[]&theme=dark&style=2&timezone=Asia%2FBaghdad&withdateranges=0&showpopupbutton=0&studies_overrides=%7B%7D&overrides=%7B%22paneProperties.background%22%3A%22%230c2418%22%2C%22paneProperties.backgroundType%22%3A%22solid%22%7D&enabled_features=[]&disabled_features=%5B%22header_widget%22%5D&locale=ar" allowtransparency="true" loading="lazy"></iframe>
+        </div>
       </div>
-      <div class="feature-card animate-on-scroll delay-1">
-        <div class="feature-icon gold"><i class="fas fa-chart-bar"></i></div>
-        <h3>لوحة تحكم متقدمة</h3>
-        <p>تابع رصيدك وإحصائياتك ومخططات السوق في الوقت الحقيقي. تحليلات شاملة لأدائك المالي.</p>
+
+      <!-- US Dollar Index -->
+      <div class="chart-card animate-on-scroll delay-3">
+        <div class="chart-card-header">
+          <div class="chart-card-title"><i class="fas fa-dollar-sign usd-icon"></i> الدولار DXY</div>
+          <div class="chart-card-badge">لحظي</div>
+        </div>
+        <div class="chart-iframe-wrap">
+          <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv_chart_dxy&symbol=TVC%3ADXY&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=0c2418&studies=[]&theme=dark&style=2&timezone=Asia%2FBaghdad&withdateranges=0&showpopupbutton=0&studies_overrides=%7B%7D&overrides=%7B%22paneProperties.background%22%3A%22%230c2418%22%2C%22paneProperties.backgroundType%22%3A%22solid%22%7D&enabled_features=[]&disabled_features=%5B%22header_widget%22%5D&locale=ar" allowtransparency="true" loading="lazy"></iframe>
+        </div>
       </div>
-      <div class="feature-card animate-on-scroll delay-2">
-        <div class="feature-icon green"><i class="fas fa-gift"></i></div>
-        <h3>مكافآت يومية</h3>
-        <p>احصل على 0.01 DC كل يوم بمجرد فتح التطبيق. بالإضافة إلى مكافأة ترحيبية 1.0 DC عند التسجيل.</p>
+
+      <!-- Crude Oil -->
+      <div class="chart-card animate-on-scroll delay-4">
+        <div class="chart-card-header">
+          <div class="chart-card-title"><i class="fas fa-oil-can oil-icon"></i> النفط الخام WTI</div>
+          <div class="chart-card-badge">لحظي</div>
+        </div>
+        <div class="chart-iframe-wrap">
+          <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv_chart_oil&symbol=TVC%3AUSOIL&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=0c2418&studies=[]&theme=dark&style=2&timezone=Asia%2FBaghdad&withdateranges=0&showpopupbutton=0&studies_overrides=%7B%7D&overrides=%7B%22paneProperties.background%22%3A%22%230c2418%22%2C%22paneProperties.backgroundType%22%3A%22solid%22%7D&enabled_features=[]&disabled_features=%5B%22header_widget%22%5D&locale=ar" allowtransparency="true" loading="lazy"></iframe>
+        </div>
       </div>
-      <div class="feature-card animate-on-scroll delay-3">
-        <div class="feature-icon blue"><i class="fas fa-mobile-alt"></i></div>
-        <h3>تطبيق PWA متطور</h3>
-        <p>يعمل على جميع الأجهزة — هاتف، تابلت، حاسوب. لا يحتاج تحميل من المتجر، فقط افتح الرابط وابدأ!</p>
-      </div>
+
     </div>
   </div>
 </section>
@@ -817,29 +1110,10 @@ body::before{
       <p>لا تحتاج خبرة سابقة — سجّل وابدأ فوراً</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card animate-on-scroll">
-        <div class="step-num">١</div>
-        <h3>أنشئ حسابك</h3>
-        <p>سجّل باستخدام بريدك الإلكتروني واحصل فوراً على 1.0 DC كمكافأة ترحيبية مجانية</p>
-      </div>
-      <div class="step-card animate-on-scroll delay-1">
-        <div class="step-connector"></div>
-        <div class="step-num">٢</div>
-        <h3>استلم بطاقتك</h3>
-        <p>احصل على بطاقة رقمية فريدة برقم خاص بك ورمز CVV ومحفظة آمنة</p>
-      </div>
-      <div class="step-card animate-on-scroll delay-2">
-        <div class="step-connector"></div>
-        <div class="step-num">٣</div>
-        <h3>اربح المكافآت</h3>
-        <p>استخدم رمز الإحالة وشاركه مع أصدقائك واحصل على مكافآت يومية</p>
-      </div>
-      <div class="step-card animate-on-scroll delay-3">
-        <div class="step-connector"></div>
-        <div class="step-num">٤</div>
-        <h3>تداول وانمو</h3>
-        <p>أرسل واستقبل العملات، تابع السوق، واستعد للإطلاق الرسمي</p>
-      </div>
+      <div class="step-card animate-on-scroll"><div class="step-num">١</div><h3>أنشئ حسابك</h3><p>سجّل باستخدام بريدك الإلكتروني واحصل فوراً على 1.0 DC كمكافأة ترحيبية مجانية</p></div>
+      <div class="step-card animate-on-scroll delay-1"><div class="step-connector"></div><div class="step-num">٢</div><h3>استلم بطاقتك</h3><p>احصل على بطاقة رقمية فريدة برقم خاص بك ورمز CVV ومحفظة آمنة</p></div>
+      <div class="step-card animate-on-scroll delay-2"><div class="step-connector"></div><div class="step-num">٣</div><h3>اربح المكافآت</h3><p>استخدم رمز الإحالة وشاركه مع أصدقائك واحصل على مكافآت يومية</p></div>
+      <div class="step-card animate-on-scroll delay-3"><div class="step-connector"></div><div class="step-num">٤</div><h3>تداول وانمو</h3><p>أرسل واستقبل العملات، تابع السوق، واستعد للإطلاق الرسمي</p></div>
     </div>
   </div>
 </section>
@@ -856,9 +1130,7 @@ body::before{
       <div class="supply-label">عملة DC متاحة للحجز</div>
       <div class="supply-sub">كل الأرقام تعتمد على قاعدة البيانات الحقيقية — لا أرقام ثابتة أو وهمية.</div>
       <div class="supply-bar-wrap">
-        <div class="supply-bar">
-          <div class="supply-fill" id="supplyFill" style="width:0%"></div>
-        </div>
+        <div class="supply-bar"><div class="supply-fill" id="supplyFill" style="width:0%"></div></div>
         <div class="supply-stats">
           <span>تم الحجز: <strong id="supplyUsed" style="color:var(--gold-2)">0%</strong></span>
           <span>متبقي: <strong id="supplyRemain" style="color:var(--green-3)">100%</strong></span>
@@ -877,30 +1149,10 @@ body::before{
       <p>فرص حقيقية للمستخدمين الأوائل لن تتكرر</p>
     </div>
     <div class="incentives-grid">
-      <div class="incentive-card featured animate-on-scroll">
-        <div class="incentive-emoji">🏆</div>
-        <h3>كن من الرواد الأوائل</h3>
-        <p>تماماً كما اشترى الناس بيتكوين بسنتات وأصبحت تساوي آلاف الدولارات، دينار كوين يمنحك فرصة مشابهة. سجّل في الفترة التجريبية واحصل على حصتك مجاناً.</p>
-        <div class="incentive-value"><i class="fas fa-gift"></i> 1.0 DC مكافأة فورية</div>
-      </div>
-      <div class="incentive-card animate-on-scroll delay-1">
-        <div class="incentive-emoji">💰</div>
-        <h3>اربح من الإحالات</h3>
-        <p>كل 10 أشخاص تدعوهم = 0.25 DC إضافية. لا حدود! كلما دعوت أكثر، كلما ربحت أكثر. ابنِ شبكتك من الآن.</p>
-        <div class="incentive-value"><i class="fas fa-users"></i> 0.25 DC لكل 10 إحالات</div>
-      </div>
-      <div class="incentive-card animate-on-scroll delay-2">
-        <div class="incentive-emoji">📅</div>
-        <h3>مكافآت يومية مستمرة</h3>
-        <p>فقط افتح التطبيق يومياً واحصل على 0.01 DC مجاناً. بعد شهر = 0.3 DC، بعد سنة = أكثر من 3.6 DC بدون أي استثمار!</p>
-        <div class="incentive-value"><i class="fas fa-calendar-check"></i> 0.01 DC يومياً</div>
-      </div>
-      <div class="incentive-card featured animate-on-scroll delay-3">
-        <div class="incentive-emoji">🚀</div>
-        <h3>مستقبل التداول العربي</h3>
-        <p>عندما يتم توثيق المنصة رسمياً والمصادقة عليها، ستكون من أوائل من يمتلك عملة رقمية عربية حقيقية. فرصة لن تتكرر!</p>
-        <div class="incentive-value"><i class="fas fa-rocket"></i> احجز مكانك الآن</div>
-      </div>
+      <div class="incentive-card featured animate-on-scroll"><div class="incentive-emoji">🏆</div><h3>كن من الرواد الأوائل</h3><p>تماماً كما اشترى الناس بيتكوين بسنتات وأصبحت تساوي آلاف الدولارات، دينار كوين يمنحك فرصة مشابهة. سجّل في الفترة التجريبية واحصل على حصتك مجاناً.</p><div class="incentive-value"><i class="fas fa-gift"></i> 1.0 DC مكافأة فورية</div></div>
+      <div class="incentive-card animate-on-scroll delay-1"><div class="incentive-emoji">💰</div><h3>اربح من الإحالات</h3><p>كل 10 أشخاص تدعوهم = 0.25 DC إضافية. لا حدود! كلما دعوت أكثر، كلما ربحت أكثر. ابنِ شبكتك من الآن.</p><div class="incentive-value"><i class="fas fa-users"></i> 0.25 DC لكل 10 إحالات</div></div>
+      <div class="incentive-card animate-on-scroll delay-2"><div class="incentive-emoji">📅</div><h3>مكافآت يومية مستمرة</h3><p>فقط افتح التطبيق يومياً واحصل على 0.01 DC مجاناً. بعد شهر = 0.3 DC، بعد سنة = أكثر من 3.6 DC بدون أي استثمار!</p><div class="incentive-value"><i class="fas fa-calendar-check"></i> 0.01 DC يومياً</div></div>
+      <div class="incentive-card featured animate-on-scroll delay-3"><div class="incentive-emoji">🚀</div><h3>مستقبل التداول العربي</h3><p>عندما يتم توثيق المنصة رسمياً والمصادقة عليها، ستكون من أوائل من يمتلك عملة رقمية عربية حقيقية. فرصة لن تتكرر!</p><div class="incentive-value"><i class="fas fa-rocket"></i> احجز مكانك الآن</div></div>
     </div>
   </div>
 </section>
@@ -913,11 +1165,7 @@ body::before{
       <h2>دينار كوين مقابل العملات الأخرى</h2>
     </div>
     <div class="comparison-table animate-on-scroll">
-      <div class="comp-header">
-        <span>الميزة</span>
-        <span style="color:var(--gold-2)">دينار كوين</span>
-        <span style="color:var(--text-3)">عملات أخرى</span>
-      </div>
+      <div class="comp-header"><span>الميزة</span><span style="color:var(--gold-2)">دينار كوين</span><span style="color:var(--text-3)">عملات أخرى</span></div>
       <div class="comp-row"><span>واجهة عربية كاملة</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
       <div class="comp-row"><span>مكافأة ترحيبية مجانية</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
       <div class="comp-row"><span>مكافآت يومية</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
@@ -938,21 +1186,9 @@ body::before{
       <h2>ماذا يقول مستخدمونا الأوائل؟</h2>
     </div>
     <div class="testimonials-grid">
-      <div class="testimonial-card animate-on-scroll">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-quote">"تطبيق رائع وسهل الاستخدام! أعجبني أنه عربي بالكامل ومصمم لنا كعراقيين. سجّلت وحصلت على مكافأتي فوراً!"</div>
-        <div class="testimonial-author"><div class="testimonial-avatar">أ</div><div class="testimonial-info"><div class="name">أحمد م.</div><div class="role">بغداد — مستخدم مبكر</div></div></div>
-      </div>
-      <div class="testimonial-card animate-on-scroll delay-1">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-quote">"فكرة عبقرية! أخيراً عملة رقمية عربية. نظام الإحالة ممتاز ودعوت أكثر من 30 شخص ومكافآتي مستمرة."</div>
-        <div class="testimonial-author"><div class="testimonial-avatar">س</div><div class="testimonial-info"><div class="name">سارة ح.</div><div class="role">البصرة — مستثمرة</div></div></div>
-      </div>
-      <div class="testimonial-card animate-on-scroll delay-2">
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-quote">"البطاقة الرقمية تصميمها خرافي والمحفظة آمنة جداً. أنتظر الإطلاق الرسمي بفارغ الصبر!"</div>
-        <div class="testimonial-author"><div class="testimonial-avatar">م</div><div class="testimonial-info"><div class="name">محمد ع.</div><div class="role">أربيل — مطوّر</div></div></div>
-      </div>
+      <div class="testimonial-card animate-on-scroll"><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">"تطبيق رائع وسهل الاستخدام! أعجبني أنه عربي بالكامل ومصمم لنا كعراقيين. سجّلت وحصلت على مكافأتي فوراً!"</div><div class="testimonial-author"><div class="testimonial-avatar">أ</div><div class="testimonial-info"><div class="name">أحمد م.</div><div class="role">بغداد — مستخدم مبكر</div></div></div></div>
+      <div class="testimonial-card animate-on-scroll delay-1"><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">"فكرة عبقرية! أخيراً عملة رقمية عربية. نظام الإحالة ممتاز ودعوت أكثر من 30 شخص ومكافآتي مستمرة."</div><div class="testimonial-author"><div class="testimonial-avatar">س</div><div class="testimonial-info"><div class="name">سارة ح.</div><div class="role">البصرة — مستثمرة</div></div></div></div>
+      <div class="testimonial-card animate-on-scroll delay-2"><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">"البطاقة الرقمية تصميمها خرافي والمحفظة آمنة جداً. أنتظر الإطلاق الرسمي بفارغ الصبر!"</div><div class="testimonial-author"><div class="testimonial-avatar">م</div><div class="testimonial-info"><div class="name">محمد ع.</div><div class="role">أربيل — مطوّر</div></div></div></div>
     </div>
   </div>
 </section>
@@ -966,46 +1202,11 @@ body::before{
     </div>
     <div class="roadmap-timeline">
       <div class="roadmap-line"></div>
-      <div class="roadmap-item done animate-on-scroll">
-        <div class="roadmap-dot"><i class="fas fa-check"></i></div>
-        <div class="roadmap-content">
-          <h3>المرحلة الأولى — التأسيس</h3>
-          <p>تطوير المنصة الأساسية، نظام المحفظة الرقمية، البطاقة الذكية، ونظام الإحالة</p>
-          <span class="roadmap-tag done">✓ مكتمل</span>
-        </div>
-      </div>
-      <div class="roadmap-item active animate-on-scroll delay-1">
-        <div class="roadmap-dot"><i class="fas fa-flask"></i></div>
-        <div class="roadmap-content">
-          <h3>المرحلة الثانية — الفترة التجريبية (الآن)</h3>
-          <p>إطلاق النسخة التجريبية، استقطاب المستخدمين الأوائل، جمع الملاحظات، وتحسين المنصة</p>
-          <span class="roadmap-tag current">● جاري الآن</span>
-        </div>
-      </div>
-      <div class="roadmap-item animate-on-scroll delay-2">
-        <div class="roadmap-dot"><i class="fas fa-certificate"></i></div>
-        <div class="roadmap-content">
-          <h3>المرحلة الثالثة — التوثيق والمصادقة</h3>
-          <p>تقديم طلبات التوثيق الرسمي، الحصول على التراخيص اللازمة، ومراجعة الأمان</p>
-          <span class="roadmap-tag upcoming">قريباً</span>
-        </div>
-      </div>
-      <div class="roadmap-item animate-on-scroll delay-3">
-        <div class="roadmap-dot"><i class="fas fa-rocket"></i></div>
-        <div class="roadmap-content">
-          <h3>المرحلة الرابعة — الإطلاق الرسمي</h3>
-          <p>إطلاق المنصة رسمياً، فتح التداول الفعلي، إدراج العملة في منصات التداول</p>
-          <span class="roadmap-tag upcoming">المستقبل</span>
-        </div>
-      </div>
-      <div class="roadmap-item animate-on-scroll delay-4">
-        <div class="roadmap-dot"><i class="fas fa-globe"></i></div>
-        <div class="roadmap-content">
-          <h3>المرحلة الخامسة — التوسع العالمي</h3>
-          <p>التوسع في الأسواق العربية والعالمية، شراكات استراتيجية، وتطوير نظام بيئي متكامل</p>
-          <span class="roadmap-tag upcoming">المستقبل</span>
-        </div>
-      </div>
+      <div class="roadmap-item done animate-on-scroll"><div class="roadmap-dot"><i class="fas fa-check"></i></div><div class="roadmap-content"><h3>المرحلة الأولى — التأسيس</h3><p>تطوير المنصة الأساسية، نظام المحفظة الرقمية، البطاقة الذكية، ونظام الإحالة</p><span class="roadmap-tag done">✓ مكتمل</span></div></div>
+      <div class="roadmap-item active animate-on-scroll delay-1"><div class="roadmap-dot"><i class="fas fa-flask"></i></div><div class="roadmap-content"><h3>المرحلة الثانية — الفترة التجريبية (الآن)</h3><p>إطلاق النسخة التجريبية، استقطاب المستخدمين الأوائل، جمع الملاحظات، وتحسين المنصة</p><span class="roadmap-tag current">● جاري الآن</span></div></div>
+      <div class="roadmap-item animate-on-scroll delay-2"><div class="roadmap-dot"><i class="fas fa-certificate"></i></div><div class="roadmap-content"><h3>المرحلة الثالثة — التوثيق والمصادقة</h3><p>تقديم طلبات التوثيق الرسمي، الحصول على التراخيص اللازمة، ومراجعة الأمان</p><span class="roadmap-tag upcoming">قريباً</span></div></div>
+      <div class="roadmap-item animate-on-scroll delay-3"><div class="roadmap-dot"><i class="fas fa-rocket"></i></div><div class="roadmap-content"><h3>المرحلة الرابعة — الإطلاق الرسمي</h3><p>إطلاق المنصة رسمياً، فتح التداول الفعلي، إدراج العملة في منصات التداول</p><span class="roadmap-tag upcoming">المستقبل</span></div></div>
+      <div class="roadmap-item animate-on-scroll delay-4"><div class="roadmap-dot"><i class="fas fa-globe"></i></div><div class="roadmap-content"><h3>المرحلة الخامسة — التوسع العالمي</h3><p>التوسع في الأسواق العربية والعالمية، شراكات استراتيجية، وتطوير نظام بيئي متكامل</p><span class="roadmap-tag upcoming">المستقبل</span></div></div>
     </div>
   </div>
 </section>
@@ -1047,6 +1248,123 @@ body::before{
   </div>
 </section>
 
+<!-- ============================================
+     SIGNUP SECTION
+     ============================================ -->
+<section class="signup-section section-padding" id="signup-beta">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-user-plus"></i> انضم الآن</div>
+      <h2>أنشئ حسابك التجريبي</h2>
+      <p>سجّل الآن واحصل على مكافأة ترحيبية فورية</p>
+    </div>
+    <div class="signup-card animate-on-scroll delay-1">
+      <img src="logo1.png" alt="Dinar Coin" class="signup-logo">
+      <h3 class="signup-title">إنشاء حساب تجريبي</h3>
+      <p class="signup-subtitle">هذه منصة تجريبية لقياس الاهتمام قبل الإطلاق الرسمي.<br>سجّل وادعم الفكرة واحصل على مكافأة الترحيب.</p>
+
+      <div class="global-error" id="globalError"></div>
+
+      <form id="signupForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">الاسم الأول *</label>
+            <i class="fas fa-user form-icon"></i>
+            <input type="text" class="form-input" id="firstName" placeholder="أدخل اسمك الأول" required>
+            <div class="form-error" id="firstNameError">الرجاء إدخال الاسم الأول</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">الاسم الأخير *</label>
+            <i class="fas fa-user form-icon"></i>
+            <input type="text" class="form-input" id="lastName" placeholder="أدخل اسمك الأخير" required>
+            <div class="form-error" id="lastNameError">الرجاء إدخال الاسم الأخير</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">البلد *</label>
+          <i class="fas fa-globe form-icon"></i>
+          <select class="form-select" id="country" required>
+            <option value="">اختر بلدك</option>
+            <option value="IQ" data-code="+964">🇮🇶 العراق (+964)</option>
+            <option value="SA" data-code="+966">🇸🇦 السعودية (+966)</option>
+            <option value="AE" data-code="+971">🇦🇪 الإمارات (+971)</option>
+            <option value="JO" data-code="+962">🇯🇴 الأردن (+962)</option>
+            <option value="TR" data-code="+90">🇹🇷 تركيا (+90)</option>
+            <option value="EG" data-code="+20">🇪🇬 مصر (+20)</option>
+            <option value="KW" data-code="+965">🇰🇼 الكويت (+965)</option>
+            <option value="QA" data-code="+974">🇶🇦 قطر (+974)</option>
+          </select>
+          <div class="form-error" id="countryError">الرجاء اختيار بلدك</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">رقم الهاتف (اختياري)</label>
+          <div class="phone-wrap">
+            <input type="text" class="phone-code" id="phoneCode" value="" readonly placeholder="---">
+            <div class="phone-input-wrap">
+              <i class="fas fa-phone form-icon" style="top:14px"></i>
+              <input type="tel" class="form-input" id="phone" placeholder="رقم الهاتف" dir="ltr" style="text-align:left">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">البريد الإلكتروني *</label>
+          <i class="fas fa-envelope form-icon"></i>
+          <input type="email" class="form-input" id="email" placeholder="example@email.com" dir="ltr" style="text-align:left" required>
+          <div class="form-error" id="emailError">الرجاء إدخال بريد إلكتروني صحيح</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">كلمة المرور *</label>
+          <i class="fas fa-lock form-icon"></i>
+          <input type="password" class="form-input" id="password" placeholder="أدخل كلمة مرور قوية" required>
+          <div class="password-hint">8 أحرف على الأقل، يُفضّل مزيج من أحرف كبيرة وصغيرة وأرقام ورموز</div>
+          <div class="form-error" id="passwordError">كلمة المرور يجب أن تكون 8 أحرف على الأقل</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">تأكيد كلمة المرور *</label>
+          <i class="fas fa-lock form-icon"></i>
+          <input type="password" class="form-input" id="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+          <div class="form-error" id="confirmPasswordError">كلمات المرور غير متطابقة</div>
+        </div>
+
+        <div class="consent-wrap">
+          <input type="checkbox" id="betaConsent">
+          <label for="betaConsent">أوافق على <a href="#terms" style="color:var(--gold-2)">شروط وأحكام</a> المرحلة التجريبية وأقرّ بأنني قرأت إخلاء المسؤولية أدناه.</label>
+        </div>
+        <div class="form-error" id="consentError" style="margin-top:-6px;margin-bottom:10px">يجب الموافقة على الشروط للمتابعة</div>
+
+        <button type="button" class="disclaimer-toggle" onclick="toggleDisclaimer()">
+          <i class="fas fa-chevron-down" id="disclaimerArrow"></i> عرض إخلاء المسؤولية الكامل (Beta Disclaimer)
+        </button>
+        <div class="disclaimer-panel" id="disclaimerPanel">
+          <p><strong style="color:var(--gold-2)">⚠️ إخلاء المسؤولية — النسخة التجريبية (BETA)</strong></p>
+          <p>هذه المنصة في مرحلة تجريبية (Beta) ولم يتم إطلاقها رسمياً بعد. التسجيل يهدف لدعم الفكرة وقياس اهتمام المجتمع.</p>
+          <p>لا تضمن المنصة أي أرباح أو عوائد مالية أو قيمة محددة للعملة. جميع الأرقام والمكافآت قابلة للتغيير.</p>
+          <p>هذه المنصة ليست نصيحة مالية أو استثمارية. المستخدم مسؤول عن قراراته بالكامل.</p>
+          <p>يوافق المستخدم على عدم رفع أي مطالبات قانونية بسبب عدم استقرار النسخة التجريبية أو الأخطاء أو توقف الخدمة أو تغيير المميزات.</p>
+          <p>يُدرك المستخدم أن المميزات والمكافآت والعرض قد تتغير قبل الإطلاق الرسمي.</p>
+          <p>التسجيل يعني دعم المشروع والحصول على وصول مبكر فقط.</p>
+          <p>يتم تخزين المعلومات الأساسية فقط (الاسم والبريد) للوصول إلى الحساب. لا تُطلب بيانات حساسة.</p>
+          <p style="color:var(--text-3);font-size:0.72rem;margin-top:8px">Beta Disclaimer v1.0 — Digital Creativity Company © 2026</p>
+        </div>
+
+        <button type="submit" class="signup-btn" id="signupBtn">
+          <span class="btn-text"><i class="fas fa-user-plus"></i> إنشاء الحساب والانضمام</span>
+          <span class="spinner"></span>
+        </button>
+      </form>
+
+      <button class="signup-back" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-arrow-right"></i> العودة إلى الصفحة الرئيسية
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section section-padding" id="download">
   <div class="container">
@@ -1057,10 +1375,10 @@ body::before{
         واحجز مكانك قبل نفاد المليون عملة المتاحة.
       </p>
       <div class="cta-buttons">
-        <a href="https://example.com/app" class="btn-primary" style="font-size:1.1rem;padding:18px 48px">
-          <i class="fas fa-download"></i> حمّل التطبيق الآن
+        <a href="#signup-beta" class="btn-primary" style="font-size:1.1rem;padding:18px 48px">
+          <i class="fas fa-user-plus"></i> سجّل الآن مجاناً
         </a>
-        <a href="https://example.com/app" class="btn-secondary" style="font-size:1.1rem;padding:18px 48px">
+        <a href="index.html" class="btn-secondary" style="font-size:1.1rem;padding:18px 48px">
           <i class="fas fa-globe"></i> افتح المنصة
         </a>
       </div>
@@ -1090,8 +1408,8 @@ body::before{
         <ul>
           <li><a href="#about">عن المشروع</a></li>
           <li><a href="#features">المميزات</a></li>
+          <li><a href="#markets">الأسواق</a></li>
           <li><a href="#roadmap">خارطة الطريق</a></li>
-          <li><a href="#download">تحميل التطبيق</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1106,7 +1424,7 @@ body::before{
       <div class="footer-col">
         <h4>تواصل معنا</h4>
         <ul>
-          <li><a href="#"><i class="fas fa-envelope" style="margin-left:6px"></i> support@dinarcoin.iq</a></li>
+          <li><a href="#"><i class="fas fa-envelope" style="margin-left:6px"></i> info@dinarcoin.io</a></li>
           <li><a href="#"><i class="fab fa-telegram" style="margin-left:6px"></i> @DinarCoin</a></li>
           <li><a href="#"><i class="fab fa-instagram" style="margin-left:6px"></i> @DinarCoin</a></li>
         </ul>
@@ -1125,7 +1443,9 @@ body::before{
   </div>
 </footer>
 
+<!-- FIREBASE SCRIPTS -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 <script>
 // ======= NAVBAR SCROLL =======
@@ -1176,11 +1496,15 @@ const firebaseConfig = {
 };
 if (!firebase.apps?.length) firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
+const auth = firebase.auth();
+
+// ======= CONSTANTS =======
+const TOTAL_SUPPLY = 10000000;
+const WELCOME_BONUS = 1.0;
 
 // ======= DYNAMIC NUMBERS =======
 function updateLandingStats(stats) {
-  // Safe fallback values
-  const totalSupply = Number(stats.total_supply) || 10000000;
+  const totalSupply = Number(stats.total_supply) || TOTAL_SUPPLY;
   const remainingSupply = Number(stats.remaining_supply) || (totalSupply - (Number(stats.distributed_coins) || 0));
   const distributedCoins = Number(stats.distributed_coins) || 0;
   const totalUsers = Number(stats.total_users) || 0;
@@ -1190,32 +1514,23 @@ function updateLandingStats(stats) {
   const dailyReward = typeof stats.daily_reward !== 'undefined' ? stats.daily_reward : 0;
   const welcomeReward = typeof stats.welcome_reward !== 'undefined' ? stats.welcome_reward : 0;
 
-  // Total supply
   if (document.getElementById('mainSupplyCounter')) document.getElementById('mainSupplyCounter').textContent = totalSupply.toLocaleString();
   if (document.getElementById('heroTotalSupply')) document.getElementById('heroTotalSupply').textContent = totalSupply.toLocaleString();
   if (document.getElementById('supplyCounter')) document.getElementById('supplyCounter').textContent = totalSupply.toLocaleString();
   if (document.getElementById('tickerSupply')) document.getElementById('tickerSupply').textContent = remainingSupply.toLocaleString() + ' DC';
-  // Users
   if (document.getElementById('heroUsers')) document.getElementById('heroUsers').textContent = totalUsers.toLocaleString();
   if (document.getElementById('tickerUsers')) document.getElementById('tickerUsers').textContent = totalUsers.toLocaleString() + '+';
-  // Price
   if (document.getElementById('heroCoinPrice')) document.getElementById('heroCoinPrice').textContent = coinPrice ? coinPrice.toLocaleString() + ' IQD' : 'غير متوفر';
   if (document.getElementById('heroFloatingPrice')) document.getElementById('heroFloatingPrice').textContent = coinPrice ? coinPrice.toLocaleString() + ' IQD' : 'غير متوفر';
   if (document.getElementById('tickerPrice')) document.getElementById('tickerPrice').textContent = coinPrice ? coinPrice.toLocaleString() : 'غير متوفر';
-  // Market cap
   if (document.getElementById('tickerMarketCap')) {
     const marketCap = coinPrice * totalSupply;
     document.getElementById('tickerMarketCap').textContent = marketCap ? (marketCap / 1000000000).toFixed(1) + ' B IQD' : 'غير متوفر';
   }
-  // Volume
   if (document.getElementById('tickerVolume')) document.getElementById('tickerVolume').textContent = volume ? volume.toLocaleString() + 'K' : '0K';
-  // Referral reward
   if (document.getElementById('tickerReferral')) document.getElementById('tickerReferral').textContent = referralReward + ' DC';
-  // Daily reward
   if (document.getElementById('tickerDaily')) document.getElementById('tickerDaily').textContent = dailyReward + ' DC';
-  // Floating reward
   if (document.getElementById('heroFloatingReward')) document.getElementById('heroFloatingReward').textContent = '+' + welcomeReward + ' DC مجاناً';
-  // Supply bar
   const usedPercent = totalSupply ? ((distributedCoins / totalSupply) * 100).toFixed(1) : '0';
   const remainPercent = (100 - parseFloat(usedPercent)).toFixed(1);
   if (document.getElementById('supplyFill')) document.getElementById('supplyFill').style.width = usedPercent + '%';
@@ -1225,7 +1540,6 @@ function updateLandingStats(stats) {
 
 // ======= REWARD LOGIC (DECREASING) =======
 function calculateDynamicRewards(users, supply) {
-  // Example: reward decreases as users grow
   const base = 1.0;
   const min = 0.1;
   const maxUsers = 100000;
@@ -1233,45 +1547,15 @@ function calculateDynamicRewards(users, supply) {
   return reward.toFixed(2);
 }
 
-
 // ======= FETCH DATABASE STATS =======
 function fetchLandingStats() {
   database.ref('global_stats').on('value', snap => {
     const stats = snap.val() || {};
-    // Dynamic reward calculation
-    stats.welcome_reward = calculateDynamicRewards(stats.total_users || 0, stats.total_supply || 10000000);
+    stats.welcome_reward = calculateDynamicRewards(stats.total_users || 0, stats.total_supply || TOTAL_SUPPLY);
     updateLandingStats(stats);
   });
 }
 fetchLandingStats();
-
-// ======= FETCH ALL USERS (REAL-TIME) =======
-function fetchAllUsers(callback) {
-  database.ref('users').on('value', snap => {
-    const users = snap.val() || {};
-    // You can use this array for display, admin, stats, etc.
-    const usersArr = Object.entries(users).map(([uid, data]) => ({ uid, ...data }));
-    if (typeof callback === 'function') callback(usersArr);
-    // Example: log to console
-    // console.log('All users:', usersArr);
-  });
-}
-
-// ======= FETCH ALL TRANSACTIONS (REAL-TIME) =======
-function fetchAllTransactions(callback) {
-  database.ref('transactions').on('value', snap => {
-    const txs = snap.val() || {};
-    // You can use this array for display, admin, stats, etc.
-    const txArr = Object.entries(txs).map(([txid, data]) => ({ txid, ...data }));
-    if (typeof callback === 'function') callback(txArr);
-    // Example: log to console
-    // console.log('All transactions:', txArr);
-  });
-}
-
-// Example usage: fetch and log all users and transactions
-// fetchAllUsers(users => console.log('All users:', users));
-// fetchAllTransactions(txs => console.log('All transactions:', txs));
 
 // ======= SMOOTH SCROLL =======
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1279,13 +1563,163 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      const offset = 80;
-      const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    // Close mobile menu if open
+    const mm = document.getElementById('mobileMenu');
+    if (mm && mm.classList.contains('active')) mm.classList.remove('active');
   });
 });
-</script>
 
+// ======= DISCLAIMER TOGGLE =======
+function toggleDisclaimer() {
+  const panel = document.getElementById('disclaimerPanel');
+  const arrow = document.getElementById('disclaimerArrow');
+  panel.classList.toggle('open');
+  arrow.style.transform = panel.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+// ======= COUNTRY SELECT → PHONE CODE =======
+document.getElementById('country').addEventListener('change', function() {
+  const selected = this.options[this.selectedIndex];
+  const code = selected.getAttribute('data-code') || '';
+  document.getElementById('phoneCode').value = code;
+});
+
+// ======= FORM VALIDATION & SIGNUP =======
+function clearErrors() {
+  document.querySelectorAll('.form-error').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.form-input, .form-select').forEach(e => e.classList.remove('error'));
+  document.getElementById('globalError').classList.remove('show');
+}
+
+function showFieldError(id, msg) {
+  const errEl = document.getElementById(id);
+  if (errEl) {
+    if (msg) errEl.textContent = msg;
+    errEl.classList.add('show');
+  }
+}
+
+function validateForm() {
+  clearErrors();
+  let valid = true;
+  const f = id => document.getElementById(id);
+
+  if (!f('firstName').value.trim()) { showFieldError('firstNameError'); f('firstName').classList.add('error'); valid = false; }
+  if (!f('lastName').value.trim()) { showFieldError('lastNameError'); f('lastName').classList.add('error'); valid = false; }
+  if (!f('country').value) { showFieldError('countryError'); f('country').classList.add('error'); valid = false; }
+  const emailVal = f('email').value.trim();
+  if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showFieldError('emailError'); f('email').classList.add('error'); valid = false; }
+  if (!f('password').value || f('password').value.length < 8) { showFieldError('passwordError'); f('password').classList.add('error'); valid = false; }
+  if (f('password').value !== f('confirmPassword').value) { showFieldError('confirmPasswordError'); f('confirmPassword').classList.add('error'); valid = false; }
+  if (!f('betaConsent').checked) { showFieldError('consentError'); valid = false; }
+
+  return valid;
+}
+
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  if (!validateForm()) return;
+
+  const btn = document.getElementById('signupBtn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const countryEl = document.getElementById('country');
+  const country = countryEl.value;
+  const countryName = countryEl.options[countryEl.selectedIndex].text.replace(/[\+\d\(\)🇮🇶🇸🇦🇦🇪🇯🇴🇹🇷🇪🇬🇰🇼🇶🇦\s]/g,'').trim();
+  const countryCallingCode = document.getElementById('phoneCode').value;
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+
+  try {
+    // Create user with Firebase Auth
+    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+    const uid = userCredential.user.uid;
+
+    // Check if user already exists to prevent double counting
+    const existingSnap = await database.ref('users/' + uid).once('value');
+    const alreadyExists = existingSnap.exists();
+
+    const now = Date.now();
+    const userProfile = {
+      firstName: firstName,
+      lastName: lastName,
+      fullName: firstName + ' ' + lastName,
+      email: email,
+      phone: phone ? (countryCallingCode + phone) : '',
+      country: country,
+      countryCallingCode: countryCallingCode,
+      consent: {
+        accepted: true,
+        acceptedAt: now,
+        version: 'beta-1'
+      },
+      createdAt: now,
+      source: 'landing',
+      balance: WELCOME_BONUS
+    };
+
+    // Save user profile
+    await database.ref('users/' + uid).set(userProfile);
+
+    // Update global stats only if user is new
+    if (!alreadyExists) {
+      await database.ref('global_stats').transaction(function(stats) {
+        if (stats) {
+          stats.total_users = (stats.total_users || 0) + 1;
+          stats.distributed_coins = (stats.distributed_coins || 0) + WELCOME_BONUS;
+          stats.remaining_supply = (stats.total_supply || TOTAL_SUPPLY) - stats.distributed_coins;
+        }
+        return stats;
+      });
+    }
+
+    // Show success modal
+    document.getElementById('successBonus').textContent = '+' + WELCOME_BONUS + ' DC';
+    document.getElementById('successOverlay').classList.add('show');
+
+    // Reset form
+    document.getElementById('signupForm').reset();
+    document.getElementById('phoneCode').value = '';
+
+  } catch (error) {
+    let msg = 'حدث خطأ غير متوقع. حاول مرة أخرى.';
+    switch (error.code) {
+      case 'auth/email-already-in-use':
+        msg = 'هذا البريد الإلكتروني مسجّل بالفعل. جرّب تسجيل الدخول من التطبيق.';
+        break;
+      case 'auth/weak-password':
+        msg = 'كلمة المرور ضعيفة جداً. استخدم 8 أحرف على الأقل مع أرقام ورموز.';
+        break;
+      case 'auth/invalid-email':
+        msg = 'البريد الإلكتروني غير صالح. تأكد من كتابته بشكل صحيح.';
+        break;
+      case 'auth/network-request-failed':
+        msg = 'خطأ في الاتصال بالإنترنت. تحقق من اتصالك وحاول مرة أخرى.';
+        break;
+      case 'auth/too-many-requests':
+        msg = 'طلبات كثيرة جداً. انتظر قليلاً ثم حاول مرة أخرى.';
+        break;
+    }
+    const ge = document.getElementById('globalError');
+    ge.textContent = msg;
+    ge.classList.add('show');
+  } finally {
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+});
+
+// ======= SUCCESS MODAL =======
+function closeSuccessModal() {
+  document.getElementById('successOverlay').classList.remove('show');
+  document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
