@@ -907,7 +907,10 @@ async function submitBuyRequest() {
 }
 
 function showSendModal() { document.getElementById('sendModal').classList.add('active'); document.getElementById('recipientCode').value = ''; document.getElementById('sendAmount').value = ''; document.getElementById('sendNote').value = ''; }
-function closeSendModal() { document.getElementById('sendModal').classList.remove('active'); }
+function closeSendModal() { 
+    closeQRScanner(); // إغلاق الكاميرا أولاً
+    document.getElementById('sendModal').classList.remove('active'); 
+}
 
 function showReceiveModal() {
     if (!currentUser) { showAuthModal('login'); return; }
@@ -1282,3 +1285,92 @@ window.addEventListener('click', e => {
 document.addEventListener('keypress', e => {
     if (e.key === 'Enter' && e.target.tagName === 'INPUT') e.preventDefault();
 });
+
+// إغلاق الكاميرا عند الخروج من الصفحة
+window.addEventListener('beforeunload', () => {
+    if (html5QrCode && isScanning) {
+        html5QrCode.stop().catch(() => {});
+    }
+});
+
+// إغلاق الكاميرا عند إخفاء التطبيق
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden && html5QrCode && isScanning) {
+        closeQRScanner();
+    }
+});
+
+// ==========================================
+// QR CODE SCANNER
+// ==========================================
+let html5QrCode = null;
+let isScanning = false;
+
+function openQRScanner() {
+    const container = document.getElementById('qrScannerContainer');
+    if (!container) return;
+    
+    // إذا كانت الكاميرا تعمل بالفعل، لا تفتحها مرة أخرى
+    if (isScanning) {
+        showNotification('تنبيه', 'الكاميرا تعمل بالفعل', 'info');
+        return;
+    }
+    
+    container.style.display = 'block';
+    
+    if (!html5QrCode) {
+        html5QrCode = new Html5Qrcode("qrReader");
+    }
+    
+    const config = { 
+        fps: 10, 
+        qrbox: { width: 250, height: 250 },
+        aspectRatio: 1.0
+    };
+    
+    html5QrCode.start(
+        { facingMode: "environment" },
+        config,
+        onScanSuccess,
+        onScanError
+    ).then(() => {
+        isScanning = true;
+    }).catch(err => {
+        isScanning = false;
+        container.style.display = 'none';
+        showNotification('خطأ', 'لا يمكن الوصول للكاميرا. تأكد من منح الإذن', 'error');
+        console.error('Camera error:', err);
+    });
+}
+
+function onScanSuccess(decodedText, decodedResult) {
+    // إيقاف المسح الضوئي
+    closeQRScanner();
+    
+    // وضع الكود الممسوح في حقل رمز المستلم
+    const recipientInput = document.getElementById('recipientCode');
+    if (recipientInput) {
+        recipientInput.value = decodedText;
+        showNotification('تم!', 'تم قراءة رمز الإحالة بنجاح', 'success');
+    }
+}
+
+function onScanError(errorMessage) {
+    // تجاهل الأخطاء البسيطة أثناء المسح
+}
+
+function closeQRScanner() {
+    if (html5QrCode && isScanning) {
+        html5QrCode.stop().then(() => {
+            html5QrCode.clear();
+            isScanning = false;
+            const container = document.getElementById('qrScannerContainer');
+            if (container) container.style.display = 'none';
+        }).catch(err => {
+            isScanning = false;
+            console.error('Error stopping scanner:', err);
+            const container = document.getElementById('qrScannerContainer');
+            if (container) container.style.display = 'none';
+        });
+    }
+}

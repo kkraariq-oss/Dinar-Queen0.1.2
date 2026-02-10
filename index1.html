@@ -14,6 +14,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -969,10 +970,22 @@
             </div>
             <div class="form-field">
                 <label>رمز المستلم</label>
-                <div class="input-wrapper">
+                <div class="input-wrapper" style="position:relative;">
                     <i class="fas fa-user-tag"></i>
-                    <input type="text" id="recipientCode" placeholder="DC12345678">
+                    <input type="text" id="recipientCode" placeholder="DC12345678" style="padding-left:55px;">
+                    <button type="button" class="btn-scan-qr" onclick="openQRScanner()" title="مسح QR Code" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--gold-primary),#c9a335);border:none;color:var(--bg-deep);padding:10px 14px;border-radius:8px;cursor:pointer;box-shadow:0 2px 8px rgba(212,175,55,0.3);transition:all 0.3s;">
+                        <i class="fas fa-camera"></i>
+                    </button>
                 </div>
+            </div>
+            <div id="qrScannerContainer" style="display:none;margin-top:15px;background:var(--bg-card);padding:15px;border-radius:12px;border:2px solid var(--gold-primary);">
+                <p style="text-align:center;color:var(--gold-primary);margin-bottom:10px;font-size:0.9rem;">
+                    <i class="fas fa-info-circle"></i> وجّه الكاميرا نحو QR Code
+                </p>
+                <div id="qrReader" style="width:100%;border-radius:12px;overflow:hidden;"></div>
+                <button type="button" class="btn-submit" onclick="closeQRScanner()" style="margin-top:10px;background:var(--red);width:100%;">
+                    <i class="fas fa-times"></i> إغلاق الكاميرا
+                </button>
             </div>
             <div class="form-field">
                 <label>الكمية (DC)</label>

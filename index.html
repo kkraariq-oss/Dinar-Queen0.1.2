@@ -24,6 +24,7 @@ html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-body);background:var(--bg-deep);color:var(--text-1);overflow-x:hidden;line-height:1.7;padding-top:var(--nav-h);padding-bottom:var(--tab-h)}
 a{text-decoration:none;color:var(--gold-2)}
 img{max-width:100%}
+.coin-logo{border-radius:50%;object-fit:cover;object-position:center;transform:scale(1.2);transform-origin:center;display:block}
 ::selection{background:var(--gold-2);color:var(--bg-deep)}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--bg-deep)}
@@ -440,7 +441,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 <!-- ========== TOP NAVBAR ========== -->
 <div class="top-nav">
   <div class="top-nav-logo">
-    <img src="logo.png" alt="DC">
+    <img src="logo.png" alt="DC" class="coin-logo" style="width:34px;height:34px;box-shadow:0 0 10px var(--gold-glow)">
     <span>دينار <b>كوين</b></span>
   </div>
   <div class="top-nav-ticker">
@@ -472,13 +473,16 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 
 <!-- ========== BETA MODAL ========== -->
 <div id="betaModal" class="modal-overlay" style="display:none;align-items:center;justify-content:center">
-  <div style="background:var(--bg-card-2);border-radius:22px;box-shadow:0 8px 32px rgba(212,175,55,0.15);padding:32px 24px;max-width:400px;width:90%;text-align:center;animation:scaleIn .5s;position:relative">
+  <div style="background:var(--bg-card-2);border-radius:22px;box-shadow:0 8px 32px rgba(212,175,55,0.15);padding:32px 24px;max-width:460px;width:90%;text-align:center;animation:scaleIn .5s;position:relative">
     <button style="position:absolute;top:14px;left:14px;background:none;border:none;color:var(--gold-2);font-size:1.3rem;cursor:pointer" onclick="closeBetaModal()"><i class="fas fa-times"></i></button>
-    <img src="logo.png" alt="DC" style="width:56px;height:56px;border-radius:14px;box-shadow:0 0 24px var(--gold-glow);display:block;margin:0 auto 10px">
-    <h2 style="font-family:var(--font-display);color:var(--gold-2);font-size:1.15rem;font-weight:800;margin-bottom:6px">⚠️ منصة تجريبية (BETA)</h2>
-    <p style="color:var(--text-2);font-size:.85rem;line-height:1.7;margin-bottom:14px">هذه المنصة في مرحلة تجريبية ولم يتم إطلاقها رسمياً بعد.<br><span style="color:var(--gold-3);font-weight:700">لا توجد ضمانات مالية أو استثمارية.</span></p>
-    <button onclick="closeBetaModal()" style="background:linear-gradient(135deg,var(--gold-2),var(--green-2));color:var(--bg-deep);padding:10px 28px;border-radius:11px;font-weight:700;font-size:.92rem;border:none;cursor:pointer">متابعة</button>
-    <div style="font-size:.68rem;color:var(--text-3);margin-top:8px"><strong>تنويه:</strong> المنصة لأغراض تجريبية فقط.</div>
+    <img src="logo.png" alt="DC" class="coin-logo" style="width:56px;height:56px;box-shadow:0 0 24px var(--gold-glow)">
+    <h2 style="font-family:var(--font-display);color:var(--gold-2);font-size:1.2rem;font-weight:800;margin-bottom:10px">💡 مشروع فكرة تجريبية — ليس عملة رقمية حقيقية بعد</h2>
+    <p style="color:var(--text-2);font-size:.88rem;line-height:1.8;margin-bottom:14px">هذه المنصة عبارة عن <strong style="color:var(--gold-3)">فكرة مفهومية تجريبية</strong> لقياس اهتمام المستخدمين والمجتمع بإمكانية إنشاء عملة رقمية عراقية وعربية.<br><br><span style="color:var(--red);font-weight:700">⚠️ هذه ليست عملة رقمية حقيقية تعمل بشكل فعلي.</span><br><br>التطبيق الفعلي والإطلاق الحقيقي يعتمد على:<br>• الحصول على موافقات قانونية وتنظيمية<br>• دراسة الجدوى والاهتمام المجتمعي<br>• التراخيص الرسمية من الجهات المختصة</p>
+    <div style="background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);border-radius:10px;padding:12px;margin-bottom:16px">
+      <p style="font-size:.82rem;color:var(--text-1);line-height:1.6"><i class="fas fa-lightbulb" style="color:var(--gold-2);margin-left:6px"></i> <strong>تماماً مثل البيتكوين</strong> الذي بدأ كفكرة في 2008 وأصبح حقيقة في 2009، نحن نستكشف هذه الفكرة مع مجتمعنا لنرى إذا كانت ستصبح حقيقة أم لا.</p>
+    </div>
+    <button onclick="closeBetaModal()" style="background:linear-gradient(135deg,var(--gold-2),var(--green-2));color:var(--bg-deep);padding:11px 32px;border-radius:11px;font-weight:700;font-size:.94rem;border:none;cursor:pointer">فهمت، أريد المتابعة</button>
+    <div style="font-size:.72rem;color:var(--text-3);margin-top:10px;line-height:1.5"><i class="fas fa-info-circle"></i> <strong>مشاركتك تساعدنا</strong> في معرفة مدى اهتمام المجتمع بهذه الفكرة.</div>
   </div>
 </div>
 
@@ -489,7 +493,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div class="container">
     <div class="hero-mini">
       <div class="beta-tag"><span class="dot"></span> منصة تجريبية — مجتمع تجريبي</div>
-      <img src="logo.png" alt="Dinar Coin" class="hero-logo">
+      <img src="logo.png" alt="Dinar Coin" class="hero-logo coin-logo">
       <h1>أول عملة رقمية <b>عراقية وعربية</b></h1>
       <p>دينار كوين منصة تجريبية لقياس اهتمام المجتمع العربي بالعملات الرقمية. سجّل الآن واحصل على مكافأة ترحيبية فورية.</p>
     </div>
@@ -509,8 +513,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 
     <!-- BETA NOTICE -->
     <div class="beta-banner-mini">
-      <i class="fas fa-exclamation-triangle"></i>
-      <p>هذه المنصة <strong style="color:var(--gold-3)">تجريبية (BETA)</strong> ولم يتم توثيقها رسمياً. لا توجد ضمانات مالية. التسجيل لدعم الفكرة والحصول على وصول مبكر.</p>
+      <i class="fas fa-lightbulb"></i>
+      <p>هذه المنصة عبارة عن <strong style="color:var(--gold-3)">فكرة تجريبية</strong> وليست عملة رقمية حقيقية. نحن نقيس اهتمام المجتمع بهذا المشروع. التطبيق الفعلي يتطلب موافقات قانونية وتنظيمية رسمية. <strong style="color:var(--gold-3)">مشاركتك تساعدنا على فهم الطلب</strong> وتطوير الفكرة لتصبح حقيقة إذا حصلت على الدعم الكافي.</p>
     </div>
 
     <!-- FEATURES MINI -->
@@ -714,6 +718,18 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       </div>
     </div>
 
+    <!-- BITCOIN PARALLEL -->
+    <div class="about-block" style="background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(26,122,74,0.08));border:1px solid var(--border-gold)">
+      <h3><i class="fab fa-bitcoin" style="color:#f7931a"></i> تماماً مثل البيتكوين — الفكرة قبل الحقيقة</h3>
+      <p><strong style="color:var(--gold-3)">في 31 أكتوبر 2008</strong>، نشر شخص مجهول تحت اسم "ساتوشي ناكاموتو" ورقة بحثية بعنوان <em>"Bitcoin: A Peer-to-Peer Electronic Cash System"</em> — كانت مجرد <strong>فكرة</strong>.</p>
+      <p>لم يكن هناك عملة حقيقية، ولا منصة تعمل، ولا أحد يصدق أن هذا المشروع سيصبح ثورة مالية عالمية. ولكن بعد شهور من المناقشات والاهتمام المجتمعي، تم إطلاق شبكة البيتكوين في <strong>3 يناير 2009</strong>.</p>
+      <p style="font-size:1.05rem;color:var(--gold-3);font-weight:700;margin-top:12px"><i class="fas fa-lightbulb"></i> البيتكوين بدأ كفكرة تجريبية، ثم أصبح حقيقة بقيمة مئات المليارات من الدولارات.</p>
+      <p>نحن في دينار كوين نسير على نفس المسار:<br>• <strong>المرحلة الحالية:</strong> فكرة + منصة تجريبية لقياس الاهتمام<br>• <strong>الخطوة التالية:</strong> الحصول على موافقات قانونية وتنظيمية<br>• <strong>الهدف النهائي:</strong> إطلاق عملة رقمية عراقية وعربية حقيقية تعمل على blockchain فعلي</p>
+      <div style="background:rgba(0,0,0,0.3);border-radius:10px;padding:14px;margin-top:14px;border-right:3px solid var(--gold-2)">
+        <p style="font-size:.9rem;line-height:1.7;color:var(--text-1);margin:0"><i class="fas fa-quote-right" style="color:var(--gold-2);margin-left:6px"></i> <strong>مشاركتك الآن</strong> تساعدنا على معرفة إذا كان المجتمع العربي والعراقي مهتم بهذه الفكرة. إذا حصلنا على دعم كافٍ، سنعمل على جعلها حقيقة رسمية.</p>
+      </div>
+    </div>
+
     <!-- SUPPLY -->
     <div class="about-block">
       <h3><i class="fas fa-fire"></i> العرض والإمداد</h3>
@@ -758,33 +774,69 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <div class="roadmap-item"><div class="rm-dot"><i class="fas fa-globe"></i></div><div class="rm-content"><h4>المرحلة الخامسة — التوسع</h4><p>التوسع العالمي وشراكات استراتيجية</p><span class="rm-tag upcoming">المستقبل</span></div></div>
     </div>
 
+    <!-- USER FEEDBACK & VISION -->
+    <div class="section-header" style="margin-top:28px"><h2>شاركنا رأيك وساعدنا في تطوير الفكرة</h2></div>
+    <div class="about-block" style="background:linear-gradient(135deg,rgba(26,122,74,0.12),rgba(42,223,122,0.08));border:1px solid var(--border)">
+      <h3><i class="fas fa-comments"></i> آراؤكم تصنع المستقبل</h3>
+      <p>نحن نبني هذا المشروع <strong style="color:var(--green-3)">معكم وليس فقط لكم</strong>. كل اقتراح، كل فكرة، وكل ملاحظة تساعدنا على فهم ما يحتاجه المجتمع العربي والعراقي من عملة رقمية خاصة بنا.</p>
+      <p style="font-size:1.05rem;color:var(--text-1);font-weight:600;margin-top:12px">ما الذي تريد رؤيته في دينار كوين؟</p>
+      <ul class="terms-list" style="margin-top:10px">
+        <li>هل تريد ميزة معينة في المحفظة الرقمية؟</li>
+        <li>هل لديك أفكار لتحسين نظام الإحالة أو المكافآت؟</li>
+        <li>ما هي المخاوف التي تود معالجتها قبل الإطلاق الرسمي؟</li>
+        <li>كيف يمكن أن تكون هذه المنصة أكثر فائدة لك ولعائلتك ولمجتمعك؟</li>
+      </ul>
+      <div style="background:rgba(0,0,0,0.25);border-radius:10px;padding:16px;margin-top:16px;text-align:center">
+        <p style="font-size:.95rem;color:var(--text-1);margin-bottom:10px"><i class="fas fa-envelope" style="color:var(--gold-2);margin-left:6px"></i> <strong>تواصل معنا وشارك أفكارك:</strong></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="mailto:feedback@dinarcoin.example" style="background:var(--green-2);color:var(--white);padding:8px 18px;border-radius:8px;font-size:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:6px"><i class="fas fa-paper-plane"></i> أرسل اقتراحك</a>
+          <a href="#" style="background:var(--gold-2);color:var(--bg-deep);padding:8px 18px;border-radius:8px;font-size:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:6px"><i class="fab fa-telegram"></i> انضم لمجتمعنا</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARABIC DIGITAL VISION -->
+    <div class="about-block" style="background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(26,122,74,0.05));border:2px solid var(--border-gold)">
+      <h3><i class="fas fa-flag"></i> العالم العربي في العصر الرقمي 🌍</h3>
+      <p>نحن نعيش في عصر تتحكم فيه التكنولوجيا والاقتصاد الرقمي بمستقبل الدول والأفراد. الدول الغربية والآسيوية لديها عملاتها الرقمية ومنصاتها المالية المتطورة — <strong style="color:var(--gold-3)">فلماذا لا نمتلك نحن أيضاً عملتنا الرقمية؟</strong></p>
+      <p>العراق والعالم العربي لديهم تاريخ عريق في التجارة والاقتصاد. نحن من اخترعنا الأرقام والجبر والعلوم التي بُني عليها العالم الحديث. <strong>حان الوقت لنستعيد مكانتنا في العصر الرقمي.</strong></p>
+      <div style="background:rgba(212,175,55,0.1);border-radius:10px;padding:16px;margin-top:14px;border-right:4px solid var(--gold-2)">
+        <h4 style="color:var(--gold-3);font-size:1.05rem;margin-bottom:10px"><i class="fas fa-rocket"></i> رؤيتنا للمستقبل:</h4>
+        <p style="font-size:.92rem;line-height:1.7;margin:0">• منصة عربية بالكامل تدعم لغتنا وثقافتنا<br>• عملة رقمية آمنة ومستقرة للمعاملات اليومية<br>• فرص اقتصادية جديدة للشباب العربي<br>• جسر بين الاقتصاد التقليدي والعالم الرقمي<br>• مصدر فخر لنا كعرب وعراقيين في المجال التقني العالمي</p>
+      </div>
+      <p style="margin-top:14px;font-size:1.05rem;color:var(--text-1);font-weight:600;text-align:center"><i class="fas fa-star" style="color:var(--gold-2)"></i> <strong>معاً نستطيع أن نصنع التغيير</strong> <i class="fas fa-star" style="color:var(--gold-2)"></i></p>
+    </div>
+
     <!-- TERMS -->
     <div class="section-header" style="margin-top:28px"><h2>الشروط والأحكام</h2></div>
     <div class="about-block">
       <h3><i class="fas fa-gavel"></i> شروط الاستخدام</h3>
       <ul class="terms-list">
-        <li>المنصة في مرحلة تجريبية (BETA) ولم تحصل على توثيق رسمي</li>
-        <li>الاشتراك يعني الموافقة على الشروط والأحكام</li>
-        <li>العملات المكتسبة قد تخضع لتعديلات عند الإطلاق</li>
-        <li>يحق للمنصة تعديل الأسعار والمكافآت</li>
+        <li><strong style="color:var(--gold-3)">⚠️ هذه منصة فكرة تجريبية</strong> — ليست عملة رقمية حقيقية تعمل حالياً</li>
+        <li>الهدف من المنصة هو <strong>قياس اهتمام المجتمع</strong> بإمكانية إنشاء عملة رقمية عراقية/عربية</li>
+        <li>التطبيق الفعلي والإطلاق الحقيقي يتطلب:<br>• موافقات قانونية من الجهات الحكومية<br>• تراخيص مالية وتنظيمية رسمية<br>• دراسة جدوى شاملة<br>• التوافق مع القوانين المحلية والدولية</li>
+        <li>الاشتراك يعني الموافقة على الشروط والأحكام والمساعدة في تطوير الفكرة</li>
+        <li>العملات الافتراضية المكتسبة في المرحلة التجريبية <strong>قد لا يكون لها قيمة حقيقية</strong> ما لم يتم الإطلاق الرسمي</li>
+        <li>يحق للمنصة تعديل الأسعار والمكافآت والشروط في أي وقت</li>
         <li>يجب أن يكون عمر المستخدم 18 سنة فأكثر</li>
       </ul>
     </div>
     <div class="about-block">
       <h3><i class="fas fa-exclamation-circle"></i> إخلاء المسؤولية</h3>
       <ul class="terms-list">
-        <li>لا ضمان لعوائد مالية أو أرباح</li>
-        <li>قيمة العملة قد تتغير ولا يوجد ضمان لاستقرار السعر</li>
-        <li>المنصة غير مسؤولة عن خسائر الفترة التجريبية</li>
-        <li>البيانات الشخصية محمية ولن تُشارك مع أطراف خارجية</li>
-        <li>في حالة عدم التوثيق الرسمي يحق إيقاف العمليات</li>
+        <li><strong style="color:var(--red)">لا ضمان لعوائد مالية أو أرباح</strong> — هذه منصة تجريبية لقياس الاهتمام فقط</li>
+        <li>قيمة العملة الافتراضية قد تتغير ولا يوجد ضمان لاستقرار السعر أو التحويل لعملة حقيقية</li>
+        <li>المنصة غير مسؤولة عن خسائر الفترة التجريبية أو عدم إطلاق المشروع رسمياً</li>
+        <li>البيانات الشخصية محمية ولن تُشارك مع أطراف خارجية دون موافقة صريحة</li>
+        <li><strong>في حالة عدم الحصول على التراخيص القانونية</strong> يحق للمنصة إيقاف العمليات دون تعويض مالي</li>
+        <li>المشروع يعتمد على دعم المجتمع والجهات التنظيمية لتحويل الفكرة إلى حقيقة</li>
       </ul>
     </div>
 
     <!-- FOOTER -->
     <div style="text-align:center;padding:24px 0 8px;border-top:1px solid var(--border);margin-top:20px">
       <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
-        <img src="logo.png" alt="DC" style="width:28px;height:28px;border-radius:50%">
+      <img src="logo.png" alt="DC" class="coin-logo" style="width:28px;height:28px;box-shadow:0 0 10px var(--gold-glow)">
         <span style="font-family:var(--font-display);font-weight:800;font-size:.9rem;color:var(--white)">دينار <b style="color:var(--gold-2)">كوين</b></span>
       </div>
       <p style="font-size:.7rem;color:var(--text-3)">© 2026 Digital Creativity Company. جميع الحقوق محفوظة.</p>
@@ -802,7 +854,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 <div class="tab-page" id="page-signup">
   <div class="container section-padding">
     <div class="signup-card">
-      <img src="logo.png" alt="Dinar Coin" class="signup-logo">
+      <img src="logo.png" alt="Dinar Coin" class="signup-logo coin-logo">
       <h3 class="signup-title">إنشاء حساب تجريبي</h3>
       <p class="signup-subtitle">سجّل وادعم الفكرة واحصل على مكافأة الترحيب</p>
 
@@ -986,12 +1038,31 @@ document.getElementById('signupForm').addEventListener('submit',async function(e
     const now=Date.now();
     const fullName=firstName+' '+lastName;
     const card=generateCardData(fullName);
+    
+    // Generate referral code
+    function generateReferralCode() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let code = 'DC';
+      for (let i = 0; i < 8; i++) code += chars.charAt(Math.floor(Math.random() * chars.length));
+      return code;
+    }
+    
     await database.ref('users/'+uid).set({
-      firstName,lastName,fullName,email,
+      firstName,lastName,
+      name:fullName,
+      fullName,email,
       phone:phone?(countryCallingCode+phone):'',
       country,countryCallingCode,
+      referralCode:generateReferralCode(),
+      balance:WELCOME_BONUS,
+      referralCount:0,
+      referralEarnings:0,
+      dailyRewards:0,
+      joinDate:new Date().toISOString(),
+      level:'beginner',
+      xp:10,
       consent:{accepted:true,acceptedAt:now,version:'beta-1'},
-      createdAt:now,source:'landing',balance:WELCOME_BONUS,
+      createdAt:now,source:'landing',
       card:card
     });
     if(!exists){
@@ -1000,9 +1071,17 @@ document.getElementById('signupForm').addEventListener('submit',async function(e
         return s;
       });
     }
+    
+    // Show success message
     document.getElementById('successBonus').textContent='+'+WELCOME_BONUS+' DC';
     document.getElementById('successOverlay').classList.add('show');
     document.getElementById('signupForm').reset();document.getElementById('phoneCode').value='';
+    
+    // Wait for Firebase to process authentication, then redirect
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Redirect to index1.html - user will be automatically logged in
+    window.location.replace('index1.html');
   }catch(err){
     let msg='حدث خطأ. حاول مرة أخرى.';
     if(err.code==='auth/email-already-in-use')msg='البريد مسجّل بالفعل';
@@ -1013,7 +1092,10 @@ document.getElementById('signupForm').addEventListener('submit',async function(e
   }finally{btn.classList.remove('loading');btn.disabled=false}
 });
 
-function closeSuccessModal(){document.getElementById('successOverlay').classList.remove('show');switchTab('home')}
+function closeSuccessModal(){
+  document.getElementById('successOverlay').classList.remove('show');
+  window.location.replace('index1.html');
+}
 </script>
 </body>
 </html>
