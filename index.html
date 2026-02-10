@@ -802,7 +802,7 @@ body::before{
   <div class="modal-sheet" style="background:var(--bg-card-2);border-radius:24px;box-shadow:0 8px 32px rgba(212,175,55,0.18);padding:40px 32px;max-width:420px;width:90%;text-align:center;position:relative;animation:fadeUp 0.7s;">
     <button class="modal-close-btn" style="position:absolute;top:18px;left:18px;background:none;border:none;color:var(--gold-2);font-size:1.5rem;cursor:pointer" onclick="closeBetaModal()"><i class="fas fa-times"></i></button>
     <div style="margin-bottom:24px;">
-      <img src="logo1.png" alt="Dinar Coin Logo" style="width:72px;height:72px;border-radius:18px;box-shadow:0 0 32px var(--gold-glow),0 0 8px var(--green-glow);background:var(--bg-card);display:block;margin:0 auto 12px;">
+      <img src="logo.png" alt="Dinar Coin Logo" style="width:72px;height:72px;border-radius:18px;box-shadow:0 0 32px var(--gold-glow),0 0 8px var(--green-glow);background:var(--bg-card);display:block;margin:0 auto 12px;">
       <h2 style="font-family:var(--font-display);color:var(--gold-2);font-size:1.3rem;font-weight:800;margin-bottom:8px">⚠️ منصة تجريبية (BETA)</h2>
       <p style="color:var(--text-2);font-size:1rem;line-height:1.8;margin-bottom:18px">
         هذه المنصة في مرحلة تجريبية ولم يتم إطلاقها رسمياً بعد.<br>
@@ -1259,7 +1259,7 @@ body::before{
       <p>سجّل الآن واحصل على مكافأة ترحيبية فورية</p>
     </div>
     <div class="signup-card animate-on-scroll delay-1">
-      <img src="logo1.png" alt="Dinar Coin" class="signup-logo">
+      <img src="logo.png" alt="Dinar Coin" class="signup-logo">
       <h3 class="signup-title">إنشاء حساب تجريبي</h3>
       <p class="signup-subtitle">هذه منصة تجريبية لقياس الاهتمام قبل الإطلاق الرسمي.<br>سجّل وادعم الفكرة واحصل على مكافأة الترحيب.</p>
 
@@ -1502,6 +1502,29 @@ const auth = firebase.auth();
 const TOTAL_SUPPLY = 10000000;
 const WELCOME_BONUS = 1.0;
 
+// ======= CARD GENERATION (same logic as app.js) =======
+function generateCardNumber() {
+  let num = '5464';
+  for (let i = 0; i < 12; i++) num += Math.floor(Math.random() * 10);
+  return num;
+}
+function generateCVV() {
+  return String(Math.floor(100 + Math.random() * 900));
+}
+function generateExpiry() {
+  const month = String(Math.floor(1 + Math.random() * 12)).padStart(2, '0');
+  const year = String(new Date().getFullYear() + 5).slice(-2);
+  return month + '/' + year;
+}
+function generateCardData(fullName) {
+  return {
+    number: generateCardNumber(),
+    cvv: generateCVV(),
+    expiry: generateExpiry(),
+    holder: fullName
+  };
+}
+
 // ======= DYNAMIC NUMBERS =======
 function updateLandingStats(stats) {
   const totalSupply = Number(stats.total_supply) || TOTAL_SUPPLY;
@@ -1646,10 +1669,13 @@ document.getElementById('signupForm').addEventListener('submit', async function(
     const alreadyExists = existingSnap.exists();
 
     const now = Date.now();
+    const fullName = firstName + ' ' + lastName;
+    const card = generateCardData(fullName);
+
     const userProfile = {
       firstName: firstName,
       lastName: lastName,
-      fullName: firstName + ' ' + lastName,
+      fullName: fullName,
       email: email,
       phone: phone ? (countryCallingCode + phone) : '',
       country: country,
@@ -1661,7 +1687,8 @@ document.getElementById('signupForm').addEventListener('submit', async function(
       },
       createdAt: now,
       source: 'landing',
-      balance: WELCOME_BONUS
+      balance: WELCOME_BONUS,
+      card: card
     };
 
     // Save user profile
