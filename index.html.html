@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>دينار كوين - العملة الرقمية العراقية الأولى | Dinar Coin</title>
+<meta name="description" content="انضم الآن إلى منصة دينار كوين، أول عملة رقمية عراقية وعربية. احجز مكانك قبل الانطلاق الرسمي!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ============================================
+   DINAR COIN - LANDING PAGE V3.0
+   ============================================ */
+:root {
+  --bg-deep: #091a11;
+  --bg-dark: #081a10;
+  --bg-card: #0c2418;
+  --bg-card-2: #0f2e1f;
+  --border: rgba(42,143,106,0.2);
+  --border-gold: rgba(212,175,55,0.25);
+  --green-1: #0d4a2d;
+  --green-2: #1a7a4a;
+  --green-3: #2adf7a;
+  --green-glow: rgba(42,223,122,0.15);
+  --gold-1: #b8960c;
+  --gold-2: #d4af37;
+  --gold-3: #f0d060;
+  --gold-glow: rgba(212,175,55,0.12);
+  --white: #ffffff;
+  --text-1: #f0f5f2;
+  --text-2: #b0c8ba;
+  --text-3: #6a8a78;
+  --red: #e74c3c;
+  --font-display: 'Cairo', sans-serif;
+  --font-body: 'Tajawal', sans-serif;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);background:var(--bg-deep);color:var(--text-1);overflow-x:hidden;line-height:1.7}
+a{text-decoration:none;color:var(--gold-2)}
+img{max-width:100%}
+::selection{background:var(--gold-2);color:var(--bg-deep)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:var(--green-2);border-radius:3px}
+
+/* ======= GRAIN OVERLAY ======= */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:0.4;
+}
+
+/* ======= ANIMATIONS ======= */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(212,175,55,0.3)}50%{box-shadow:0 0 40px rgba(212,175,55,0.6)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes countUp{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+@keyframes slideRight{from{transform:translateX(-100%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes borderGlow{0%,100%{border-color:rgba(212,175,55,0.2)}50%{border-color:rgba(212,175,55,0.6)}}
+@keyframes ripple{0%{transform:scale(1);opacity:0.4}100%{transform:scale(2.5);opacity:0}}
+
+.animate-on-scroll{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+.delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}.delay-3{transition-delay:0.3s}.delay-4{transition-delay:0.4s}.delay-5{transition-delay:0.5s}
+
+/* ======= UTILITY ======= */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-padding{padding:100px 0}
+.text-center{text-align:center}
+.gold{color:var(--gold-2)}
+.green{color:var(--green-3)}
+
+/* ======= BETA BANNER ======= */
+.beta-banner{
+  background:linear-gradient(90deg,var(--gold-1),var(--gold-2),var(--gold-3),var(--gold-2),var(--gold-1));
+  background-size:200% 100%;animation:shimmer 4s linear infinite;
+  color:var(--bg-deep);text-align:center;padding:10px 16px;font-size:0.8rem;font-weight:700;
+  letter-spacing:0.5px;position:relative;z-index:100;
+}
+.beta-banner i{margin-left:6px}
+
+/* ======= NAVBAR ======= */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:14px 0;transition:all 0.4s;
+  background:transparent;
+}
+.navbar.scrolled{
+  background:rgba(4,13,8,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:10px 0;
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--gold-1));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;font-weight:900;color:var(--bg-deep);
+  font-family:var(--font-display);
+  box-shadow:0 0 20px rgba(212,175,55,0.3);
+}
+.nav-logo-text{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--white)}
+.nav-logo-text span{color:var(--gold-2)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--text-2);font-size:0.9rem;font-weight:500;transition:color 0.3s;position:relative}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;right:0;width:0;height:2px;background:var(--gold-2);transition:width 0.3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--green-2),var(--green-1));
+  color:var(--white);padding:10px 24px;border-radius:10px;font-weight:700;font-size:0.85rem;
+  border:1px solid rgba(42,143,106,0.4);cursor:pointer;transition:all 0.3s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,122,74,0.4)}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text-1);font-size:1.4rem;cursor:pointer}
+
+/* ======= HERO ======= */
+.hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;
+  padding-top:120px;padding-bottom:80px;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%,rgba(26,122,74,0.15) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 80%,rgba(212,175,55,0.08) 0%,transparent 50%),
+    radial-gradient(circle at 50% 50%,rgba(42,223,122,0.03) 0%,transparent 40%);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);
+  padding:8px 20px;border-radius:30px;font-size:0.8rem;color:var(--gold-2);font-weight:600;
+  margin-bottom:24px;animation:borderGlow 3s infinite;
+}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green-3);animation:pulse 1.5s infinite}
+.hero h1{
+  font-family:var(--font-display);font-size:3.2rem;font-weight:900;line-height:1.25;
+  margin-bottom:20px;color:var(--white);
+}
+.hero h1 .highlight{
+  background:linear-gradient(135deg,var(--gold-3),var(--gold-2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc{font-size:1.05rem;color:var(--text-2);margin-bottom:36px;max-width:520px;line-height:1.9}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-2),var(--gold-1));
+  color:var(--bg-deep);padding:16px 36px;border-radius:14px;font-size:1rem;font-weight:800;
+  border:none;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-body);box-shadow:0 8px 32px rgba(212,175,55,0.3);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(212,175,55,0.5)}
+.btn-secondary{
+  background:transparent;color:var(--gold-2);padding:16px 36px;border-radius:14px;font-size:1rem;font-weight:700;
+  border:2px solid var(--gold-2);cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-body);
+}
+.btn-secondary:hover{background:rgba(212,175,55,0.1);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:40px}
+.hero-stat{text-align:center}
+.hero-stat-value{font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--gold-2)}
+.hero-stat-label{font-size:0.75rem;color:var(--text-3);margin-top:4px}
+
+/* HERO VISUAL */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.coin-3d{
+  width:320px;height:320px;position:relative;animation:float 6s ease-in-out infinite;
+}
+.coin-outer{
+  width:100%;height:100%;border-radius:50%;position:relative;
+  background:conic-gradient(from 45deg,var(--gold-1),var(--gold-3),var(--gold-2),var(--gold-1),var(--gold-3),var(--gold-2),var(--gold-1));
+  padding:6px;box-shadow:0 0 60px rgba(212,175,55,0.3),0 0 120px rgba(212,175,55,0.1);
+  animation:spinSlow 20s linear infinite;
+}
+.coin-inner{
+  width:100%;height:100%;border-radius:50%;
+  background:linear-gradient(145deg,#1a3d2a 0%,#0d2618 40%,#1a4a30 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.coin-inner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,transparent 50%,rgba(255,255,255,0.03) 100%);
+}
+.coin-symbol{font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--gold-2);position:relative;z-index:1;text-shadow:0 2px 20px rgba(212,175,55,0.5)}
+.coin-text{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--gold-3);letter-spacing:3px;position:relative;z-index:1;margin-top:-4px}
+.coin-ring-1,.coin-ring-2{position:absolute;border-radius:50%;border:1px solid rgba(212,175,55,0.15)}
+.coin-ring-1{inset:-30px;animation:spinSlow 30s linear infinite reverse}
+.coin-ring-2{inset:-60px;animation:spinSlow 40s linear infinite;border-style:dashed}
+.floating-card{
+  position:absolute;background:rgba(12,36,24,0.9);backdrop-filter:blur(16px);
+  border:1px solid var(--border);border-radius:16px;padding:14px 18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+.floating-card-1{top:10%;right:-40px;animation:float 5s ease-in-out infinite 0.5s}
+.floating-card-2{bottom:15%;left:-30px;animation:float 5s ease-in-out infinite 1s}
+.fc-row{display:flex;align-items:center;gap:8px}
+.fc-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem}
+.fc-icon.green{background:rgba(42,223,122,0.15);color:var(--green-3)}
+.fc-icon.gold{background:rgba(212,175,55,0.15);color:var(--gold-2)}
+.fc-text span{display:block;font-size:0.7rem;color:var(--text-3)}
+.fc-text strong{display:block;font-size:0.85rem;color:var(--white);font-weight:700}
+
+/* ======= TICKER ======= */
+.live-ticker{
+  background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:16px 0;overflow:hidden;
+}
+.ticker-track{display:flex;gap:48px;animation:marquee 30s linear infinite;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.ticker-item .label{font-size:0.8rem;color:var(--text-3);font-weight:600}
+.ticker-item .value{font-size:0.9rem;color:var(--white);font-weight:700}
+.ticker-item .change{font-size:0.8rem;font-weight:600}
+.ticker-item .change.up{color:var(--green-3)}
+.ticker-sep{color:var(--text-3);opacity:0.3}
+
+/* ======= BETA NOTICE ======= */
+.beta-notice{
+  background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(231,76,60,0.05));
+  border:1px solid var(--border-gold);border-radius:20px;
+  padding:32px;margin:0 auto;max-width:900px;position:relative;overflow:hidden;
+}
+.beta-notice::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle at center,rgba(212,175,55,0.05),transparent 50%);
+}
+.beta-notice-inner{position:relative;z-index:1;display:flex;gap:24px;align-items:flex-start}
+.beta-icon-wrap{
+  width:60px;height:60px;border-radius:16px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(212,175,55,0.05));
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gold-2);
+}
+.beta-notice h3{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--gold-2);margin-bottom:8px}
+.beta-notice p{font-size:0.9rem;color:var(--text-2);line-height:1.8}
+
+/* ======= WHAT IS DC ======= */
+.about-section{position:relative;overflow:hidden}
+.about-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-2),transparent);
+}
+.section-header{text-align:center;margin-bottom:60px}
+.section-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(42,223,122,0.08);border:1px solid rgba(42,223,122,0.2);
+  padding:6px 18px;border-radius:20px;font-size:0.75rem;color:var(--green-3);font-weight:600;
+  margin-bottom:16px;
+}
+.section-header h2{
+  font-family:var(--font-display);font-size:2.6rem;font-weight:900;color:var(--white);
+  margin-bottom:16px;line-height:1.3;
+}
+.section-header p{font-size:1rem;color:var(--text-2);max-width:600px;margin:0 auto}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-text h3{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:20px}
+.about-text p{font-size:0.95rem;color:var(--text-2);line-height:2;margin-bottom:16px}
+.about-highlights{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.highlight-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;transition:all 0.3s}
+.highlight-item:hover{border-color:var(--gold-2);transform:translateX(-6px)}
+.highlight-icon{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.highlight-icon.g{background:linear-gradient(135deg,var(--green-1),var(--green-2));color:var(--white)}
+.highlight-icon.o{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:var(--bg-deep)}
+.highlight-text{font-size:0.9rem;color:var(--text-1);font-weight:600}
+.about-visual{position:relative}
+.about-card{
+  background:var(--bg-card-2);border:1px solid var(--border);border-radius:24px;
+  padding:40px;text-align:center;position:relative;overflow:hidden;
+}
+.about-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(42,223,122,0.05),transparent 50%,rgba(212,175,55,0.05));
+}
+.about-card-value{
+  font-family:var(--font-display);font-size:4rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--green-3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  position:relative;z-index:1;
+}
+.about-card-label{font-size:1rem;color:var(--text-2);position:relative;z-index:1;margin-top:8px}
+.about-card-sub{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;position:relative;z-index:1;
+}
+.about-sub-item{background:rgba(255,255,255,0.03);border-radius:14px;padding:16px}
+.about-sub-item .val{font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:var(--gold-2)}
+.about-sub-item .lbl{font-size:0.75rem;color:var(--text-3);margin-top:4px}
+
+/* ======= FEATURES ======= */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+  padding:32px 28px;transition:all 0.4s;position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold-2),var(--green-3));opacity:0;transition:opacity 0.4s;
+}
+.feature-card:hover{transform:translateY(-8px);border-color:var(--border-gold)}
+.feature-card:hover::before{opacity:1}
+.feature-icon{
+  width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:20px;
+}
+.feature-icon.green{background:linear-gradient(135deg,rgba(42,223,122,0.15),rgba(26,122,74,0.1));color:var(--green-3)}
+.feature-icon.gold{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(184,150,12,0.1));color:var(--gold-2)}
+.feature-icon.blue{background:linear-gradient(135deg,rgba(52,152,219,0.15),rgba(52,152,219,0.05));color:#5dade2}
+.feature-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.feature-card p{font-size:0.85rem;color:var(--text-2);line-height:1.8}
+
+/* ======= HOW IT WORKS ======= */
+.steps-section{background:var(--bg-dark);position:relative}
+.steps-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(26,122,74,0.08),transparent);
+}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+.step-card{text-align:center;position:relative}
+.step-num{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--gold-2),var(--gold-1));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:1.5rem;font-weight:900;color:var(--bg-deep);
+  box-shadow:0 8px 24px rgba(212,175,55,0.3);position:relative;z-index:2;
+}
+.step-card h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.step-card p{font-size:0.8rem;color:var(--text-2);line-height:1.7}
+.step-connector{
+  position:absolute;top:32px;left:-50%;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--gold-2),transparent);z-index:1;
+}
+
+/* ======= SUPPLY COUNTER ======= */
+.supply-section{
+  background:linear-gradient(135deg,var(--green-1),var(--bg-deep) 40%,var(--bg-deep) 60%,var(--green-1));
+  position:relative;overflow:hidden;
+}
+.supply-content{text-align:center;position:relative;z-index:2}
+.supply-counter{
+  font-family:var(--font-display);font-size:5rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold-3),var(--gold-2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin:30px 0 10px;line-height:1;
+}
+.supply-label{font-size:1.2rem;color:var(--text-2);margin-bottom:8px}
+.supply-sub{font-size:0.9rem;color:var(--text-3)}
+.supply-bar-wrap{max-width:600px;margin:40px auto 0}
+.supply-bar{height:16px;background:var(--bg-card);border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.supply-fill{
+  height:100%;border-radius:8px;
+  background:linear-gradient(90deg,var(--green-2),var(--gold-2));
+  transition:width 2s cubic-bezier(0.16,1,0.3,1);
+  box-shadow:0 0 12px rgba(212,175,55,0.4);
+}
+.supply-stats{display:flex;justify-content:space-between;margin-top:12px;font-size:0.8rem;color:var(--text-3)}
+
+/* ======= INCENTIVES ======= */
+.incentives-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.incentive-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+  padding:32px;position:relative;overflow:hidden;transition:all 0.4s;
+}
+.incentive-card:hover{transform:translateY(-4px);border-color:var(--border-gold)}
+.incentive-card.featured{
+  background:linear-gradient(135deg,rgba(212,175,55,0.08),var(--bg-card));
+  border-color:var(--border-gold);
+}
+.incentive-emoji{font-size:2.5rem;margin-bottom:16px}
+.incentive-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.incentive-card p{font-size:0.85rem;color:var(--text-2);line-height:1.8}
+.incentive-value{
+  display:inline-block;background:rgba(42,223,122,0.1);border:1px solid rgba(42,223,122,0.2);
+  padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:700;color:var(--green-3);margin-top:12px;
+}
+
+/* ======= COMPARISON ======= */
+.comparison-table{max-width:800px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid var(--border)}
+.comp-header{display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--bg-card-2);padding:18px 28px;font-weight:700;font-size:0.9rem}
+.comp-header span:not(:first-child){text-align:center}
+.comp-row{display:grid;grid-template-columns:2fr 1fr 1fr;padding:16px 28px;border-bottom:1px solid var(--border);font-size:0.85rem;color:var(--text-2);transition:background 0.3s}
+.comp-row:hover{background:rgba(42,223,122,0.03)}
+.comp-row:last-child{border-bottom:none}
+.comp-row span:not(:first-child){text-align:center}
+.comp-check{color:var(--green-3);font-size:1.1rem}
+.comp-x{color:var(--text-3);opacity:0.4;font-size:1.1rem}
+
+/* ======= TESTIMONIALS ======= */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:28px;
+  position:relative;transition:all 0.3s;
+}
+.testimonial-card:hover{transform:translateY(-4px);border-color:var(--border-gold)}
+.testimonial-quote{font-size:0.9rem;color:var(--text-2);line-height:1.9;margin-bottom:20px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-2),var(--gold-2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1rem;color:var(--bg-deep);
+}
+.testimonial-info .name{font-size:0.85rem;font-weight:700;color:var(--white)}
+.testimonial-info .role{font-size:0.75rem;color:var(--text-3)}
+.testimonial-stars{color:var(--gold-2);font-size:0.8rem;margin-bottom:12px}
+
+/* ======= ROADMAP ======= */
+.roadmap-section{background:var(--bg-dark)}
+.roadmap-timeline{position:relative;max-width:700px;margin:0 auto}
+.roadmap-line{position:absolute;top:0;bottom:0;right:24px;width:3px;background:var(--border);border-radius:2px}
+.roadmap-item{display:flex;gap:24px;margin-bottom:40px;position:relative}
+.roadmap-dot{
+  width:50px;height:50px;border-radius:50%;flex-shrink:0;
+  background:var(--bg-card);border:3px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;color:var(--text-3);position:relative;z-index:2;transition:all 0.3s;
+}
+.roadmap-item.active .roadmap-dot{border-color:var(--gold-2);background:var(--bg-card-2);color:var(--gold-2);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+.roadmap-item.done .roadmap-dot{border-color:var(--green-3);background:var(--green-1);color:var(--green-3)}
+.roadmap-content{flex:1;padding-top:8px}
+.roadmap-content h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.roadmap-content p{font-size:0.85rem;color:var(--text-2);line-height:1.7}
+.roadmap-tag{display:inline-block;font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:6px;margin-top:8px}
+.roadmap-tag.done{background:rgba(42,223,122,0.1);color:var(--green-3)}
+.roadmap-tag.current{background:rgba(212,175,55,0.1);color:var(--gold-2)}
+.roadmap-tag.upcoming{background:rgba(255,255,255,0.05);color:var(--text-3)}
+
+/* ======= TERMS ======= */
+.terms-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.terms-block h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold-2);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.terms-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.terms-list li{
+  font-size:0.85rem;color:var(--text-2);line-height:1.8;padding-right:24px;position:relative;
+}
+.terms-list li::before{
+  content:'◆';position:absolute;right:0;color:var(--gold-2);font-size:0.6rem;top:6px;
+}
+
+/* ======= CTA ======= */
+.cta-section{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-1) 0%,var(--bg-deep) 30%,var(--bg-deep) 70%,var(--green-1) 100%);
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(212,175,55,0.06),transparent 60%);
+}
+.cta-content{text-align:center;position:relative;z-index:2;max-width:700px;margin:0 auto}
+.cta-content h2{font-family:var(--font-display);font-size:2.4rem;font-weight:900;color:var(--white);margin-bottom:16px}
+.cta-content p{font-size:1rem;color:var(--text-2);margin-bottom:36px}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.cta-trust{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--text-3)}
+.trust-item i{color:var(--green-3);font-size:1rem}
+
+/* ======= FOOTER ======= */
+.footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:60px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand p{font-size:0.85rem;color:var(--text-2);margin-top:12px;line-height:1.8}
+.footer-col h4{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--gold-2);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:0.85rem;color:var(--text-2);transition:color 0.3s}
+.footer-col ul li a:hover{color:var(--gold-2)}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:0.8rem;color:var(--text-3)}
+.footer-socials{display:flex;gap:12px}
+.footer-socials a{
+  width:36px;height:36px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--text-2);font-size:0.9rem;transition:all 0.3s;
+}
+.footer-socials a:hover{color:var(--gold-2);border-color:var(--gold-2);transform:translateY(-3px)}
+
+/* ======= MOBILE MENU ======= */
+.mobile-menu{
+  position:fixed;inset:0;background:rgba(4,13,8,0.97);backdrop-filter:blur(20px);z-index:200;
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+.mobile-menu.active{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--text-1);transition:color 0.3s}
+.mobile-menu a:hover{color:var(--gold-2)}
+.mobile-menu-close{position:absolute;top:20px;left:20px;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer}
+
+/* ======= RESPONSIVE ======= */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-desc{margin:0 auto 36px}
+  .hero-actions{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{order:-1;margin-bottom:20px}
+  .coin-3d{width:240px;height:240px}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
+  .step-connector{display:none}
+  .testimonials-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-text{text-align:center}
+  .highlight-item:hover{transform:none}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .hero h1{font-size:2.2rem}
+  .section-header h2{font-size:2rem}
+  .supply-counter{font-size:3rem}
+  .features-grid{grid-template-columns:1fr}
+  .incentives-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .comparison-table{font-size:0.8rem}
+  .comp-header,.comp-row{padding:12px 16px}
+  .terms-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .cta-content h2{font-size:1.8rem}
+  .floating-card{display:none}
+}
+@media(max-width:400px){
+  .hero h1{font-size:1.8rem}
+  .hero-stats{flex-direction:column;gap:16px}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- BETA MODAL -->
+<div id="betaModal" class="modal-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(4,13,8,0.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;animation:fadeIn 0.7s;">
+  <div class="modal-sheet" style="background:var(--bg-card-2);border-radius:24px;box-shadow:0 8px 32px rgba(212,175,55,0.18);padding:40px 32px;max-width:420px;width:90%;text-align:center;position:relative;animation:fadeUp 0.7s;">
+    <button class="modal-close-btn" style="position:absolute;top:18px;left:18px;background:none;border:none;color:var(--gold-2);font-size:1.5rem;cursor:pointer" onclick="closeBetaModal()"><i class="fas fa-times"></i></button>
+    <div style="margin-bottom:24px;">
+      <img src="logo1.png" alt="Dinar Coin Logo" style="width:72px;height:72px;border-radius:18px;box-shadow:0 0 32px var(--gold-glow),0 0 8px var(--green-glow);background:var(--bg-card);display:block;margin:0 auto 12px;">
+      <h2 style="font-family:var(--font-display);color:var(--gold-2);font-size:1.3rem;font-weight:800;margin-bottom:8px">⚠️ منصة تجريبية (BETA)</h2>
+      <p style="color:var(--text-2);font-size:1rem;line-height:1.8;margin-bottom:18px">
+        هذه المنصة في مرحلة تجريبية ولم يتم إطلاقها رسمياً بعد.<br>
+        يمكنك التسجيل الآن لحجز مكانك قبل الإطلاق الرسمي.<br>
+        جميع الأرقام والمكافآت تعتمد على قاعدة البيانات الحقيقية.<br>
+        <span style="color:var(--gold-3);font-weight:700">لا توجد ضمانات مالية أو استثمارية.</span>
+      </p>
+      <div style="background:rgba(212,175,55,0.08);border-radius:12px;padding:10px 0;margin-bottom:10px;font-size:0.9rem;color:var(--gold-2);font-weight:700">منصة تجريبية — مجتمع تجريبي لقياس الاهتمام</div>
+      <button onclick="closeBetaModal()" style="background:linear-gradient(135deg,var(--gold-2),var(--green-2));color:var(--bg-deep);padding:12px 32px;border-radius:12px;font-weight:700;font-size:1rem;border:none;box-shadow:0 4px 16px rgba(212,175,55,0.18);margin-top:8px;cursor:pointer">متابعة إلى المنصة</button>
+    </div>
+    <div style="font-size:0.8rem;color:var(--text-3);margin-top:10px;text-align:center">
+      <strong>تنويه قانوني:</strong> لا توجد أي وعود أو ضمانات ربح أو استثمار. المنصة لأغراض تجريبية فقط. جميع البيانات والمكافآت قابلة للتغيير قبل الإطلاق الرسمي.
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-icon" style="padding:0;overflow:hidden;background:none;box-shadow:none;width:42px;height:42px;display:flex;align-items:center;justify-content:center;">
+        <img src="logo.png" alt="App Icon" style="width:42px;height:42px;border-radius:50%;box-shadow:0 0 12px var(--gold-glow),0 0 3px var(--green-glow);background:var(--bg-card);object-fit:cover;object-position:center;">
+      </div>
+      <div class="nav-logo-text">دينار <span>كوين</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">ما هو دينار كوين</a>
+      <a href="#features">المميزات</a>
+      <a href="#roadmap">خارطة الطريق</a>
+      <a href="#terms">الشروط</a>
+      <a href="#download" class="nav-cta"><i class="fas fa-download"></i> حمّل التطبيق</a>
+    </div>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+  <a href="#about" onclick="toggleMobileMenu()">ما هو دينار كوين</a>
+  <a href="#features" onclick="toggleMobileMenu()">المميزات</a>
+  <a href="#roadmap" onclick="toggleMobileMenu()">خارطة الطريق</a>
+  <a href="#terms" onclick="toggleMobileMenu()">الشروط</a>
+  <a href="#download" onclick="toggleMobileMenu()">حمّل التطبيق</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge animate-on-scroll">
+          <span class="dot"></span>
+          منصة تجريبية — مجتمع تجريبي
+        </div>
+        <h1 class="animate-on-scroll delay-1">
+          <span style="display:flex;align-items:center;gap:12px;justify-content:center">
+            <img src="logo1.png" alt="App Icon" style="width:48px;height:48px;border-radius:12px;box-shadow:0 0 16px var(--gold-glow),0 0 4px var(--green-glow);background:var(--bg-card);">
+            <span>أول عملة رقمية عراقية وعربية</span>
+          </span>
+        </h1>
+        <p class="hero-desc animate-on-scroll delay-2">
+          دينار كوين منصة تجريبية لقياس اهتمام المجتمع العربي بالعملات الرقمية.<br>
+          جميع الأرقام والمكافآت تعتمد على قاعدة البيانات الحقيقية.<br>
+          <span style="color:var(--gold-3);font-weight:700">لا توجد ضمانات مالية أو استثمارية.</span>
+        </p>
+        <div class="hero-actions animate-on-scroll delay-3">
+          <a href="#download" class="btn-primary"><i class="fas fa-rocket"></i> ابدأ الآن مجاناً</a>
+          <a href="#about" class="btn-secondary"><i class="fas fa-play-circle"></i> تعرّف على المشروع</a>
+        </div>
+        <div class="hero-stats animate-on-scroll delay-4">
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="heroUsers">0</div>
+            <div class="hero-stat-label">مستخدم مسجّل</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="heroTotalSupply">10,000,000</div>
+            <div class="hero-stat-label">إجمالي العملات</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="heroCoinPrice">1,000 IQD</div>
+            <div class="hero-stat-label">سعر العملة</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual animate-on-scroll delay-2">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div style="position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+            <!-- Phone Frame -->
+            <div style="width:180px;height:370px;background:linear-gradient(135deg,#222 60%,#333 100%);border-radius:38px;box-shadow:0 0 48px var(--gold-glow),0 0 12px var(--green-glow);border:4px solid var(--bg-card);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+              <img src="logo1.png" alt="App Screenshot" style="width:160px;height:340px;object-fit:cover;object-position:center;border-radius:30px;box-shadow:0 2px 16px rgba(0,0,0,0.18);background:var(--bg-card);">
+              <!-- Speaker/Camera Notch -->
+              <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:48px;height:8px;background:#222;border-radius:6px;opacity:0.5;"></div>
+              <div style="position:absolute;top:10px;right:30px;width:8px;height:8px;background:#444;border-radius:50%;opacity:0.7;"></div>
+            </div>
+          </div>
+          <div class="floating-card floating-card-1">
+            <div class="fc-row">
+              <div class="fc-icon green"><i class="fas fa-arrow-up"></i></div>
+              <div class="fc-text"><span>سعر العملة</span><strong id="heroFloatingPrice">1,000 IQD</strong></div>
+            </div>
+          </div>
+          <div class="floating-card floating-card-2">
+            <div class="fc-row">
+              <div class="fc-icon gold"><i class="fas fa-gift"></i></div>
+              <div class="fc-text"><span>مكافأة الانضمام</span><strong id="heroFloatingReward">+1.0 DC مجاناً</strong></div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="live-ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="label">DC/IQD</span><span class="value" id="tickerPrice">1,000</span><span class="change up" id="tickerChange">+0.0%</span></div>
+    <span class="ticker-sep">|</span>
+    <div class="ticker-item"><span class="label">حجم التداول</span><span class="value" id="tickerVolume">0</span><span class="change up">↑</span></div>
+    <span class="ticker-sep">|</span>
+    <div class="ticker-item"><span class="label">القيمة السوقية</span><span class="value" id="tickerMarketCap">0</span></div>
+    <span class="ticker-sep">|</span>
+    <div class="ticker-item"><span class="label">المستخدمون</span><span class="value" id="tickerUsers">0+</span><span class="change up">↑</span></div>
+    <span class="ticker-sep">|</span>
+    <div class="ticker-item"><span class="label">الإمداد المتبقي</span><span class="value" id="tickerSupply">0 DC</span></div>
+    <span class="ticker-sep">|</span>
+    <div class="ticker-item"><span class="label">مكافأة الإحالة</span><span class="value" id="tickerReferral">0 DC</span></div>
+    <span class="ticker-sep">|</span>
+    <div class="ticker-item"><span class="label">مكافأة يومية</span><span class="value" id="tickerDaily">0 DC</span></div>
+  </div>
+</div>
+
+<!-- BETA NOTICE -->
+<section class="section-padding" id="notice">
+  <div class="container">
+    <div class="beta-notice animate-on-scroll">
+      <div class="beta-notice-inner">
+        <div class="beta-icon-wrap"><i class="fas fa-exclamation-triangle"></i></div>
+        <div>
+          <h3>⚠️ تنبيه مهم — الفترة التجريبية</h3>
+          <p>
+            منصة دينار كوين حالياً في <strong style="color:var(--gold-3)">مرحلة تجريبية (BETA)</strong> ولم يتم توثيقها أو المصادقة عليها رسمياً بعد.
+            الهدف من هذه المرحلة هو إتاحة الفرصة للمستخدمين الأوائل لحجز أماكنهم وتجربة المنصة قبل الإطلاق الرسمي.
+            <br><br>
+            تماماً كما بدأت بيتكوين بسعر بسيط، نحن نؤمن أن دينار كوين يمكن أن يصبح جزءاً أساسياً من المستقبل الرقمي العربي.
+            لكن يجب التنبيه أن الاستخدام الحالي يخضع للشروط التجريبية ولا يضمن عوائد مالية.
+            <strong style="color:var(--gold-3)">سجّل الآن لتكون من الرواد!</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS DC -->
+<section class="about-section section-padding" id="about">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-coins"></i> تعرّف على المشروع</div>
+      <h2>ما هو دينار كوين؟</h2>
+      <p>مشروع رقمي عراقي طموح يهدف لإثبات الوجود العربي في عالم العملات الرقمية</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text animate-on-scroll">
+        <h3>العملة الرقمية الأولى من قلب العراق 🇮🇶</h3>
+        <p>
+          دينار كوين ليست مجرد عملة رقمية — إنها رؤية عربية لمستقبل مالي رقمي. في عالم تهيمن عليه العملات الغربية مثل بيتكوين وإيثريوم، قررنا أن نصنع عملتنا الخاصة، من العراق، للعالم العربي بأكمله.
+        </p>
+        <p>
+          نحن نبني منصة متكاملة تدعم اللغة العربية بالكامل، مع محفظة رقمية آمنة، ونظام إحالة يكافئ المجتمع، وبطاقة رقمية فريدة لكل مستخدم. كل شيء مصمم ليكون سهل الاستخدام حتى لمن ليس لديه خبرة سابقة.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon g"><i class="fas fa-shield-alt"></i></div>
+            <span class="highlight-text">آمنة ومشفرة بتقنيات حديثة</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon o"><i class="fas fa-globe-americas"></i></div>
+            <span class="highlight-text">عربية 100% — واجهة وتجربة محلية</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon g"><i class="fas fa-users"></i></div>
+            <span class="highlight-text">مبنية على المجتمع — كلنا نربح</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon o"><i class="fas fa-chart-line"></i></div>
+            <span class="highlight-text">إمكانية نمو مستقبلي كعملة رسمية</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual animate-on-scroll delay-2">
+        <div class="about-card">
+          <div class="about-card-value" id="supplyCounter">1,000,000</div>
+          <div class="about-card-label">إجمالي العملات المتاحة</div>
+          <div class="about-card-sub">
+            <div class="about-sub-item">
+              <div class="val">1,000 IQD</div>
+              <div class="lbl">سعر العملة الواحدة</div>
+            </div>
+            <div class="about-sub-item">
+              <div class="val">+1.0 DC</div>
+              <div class="lbl">مكافأة الانضمام</div>
+            </div>
+            <div class="about-sub-item">
+              <div class="val">0.25 DC</div>
+              <div class="lbl">مكافأة كل 10 إحالات</div>
+            </div>
+            <div class="about-sub-item">
+              <div class="val">0.01 DC</div>
+              <div class="lbl">مكافأة يومية</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-padding" id="features">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-star"></i> المميزات</div>
+      <h2>لماذا دينار كوين؟</h2>
+      <p>منصة متكاملة تجمع بين الأمان والسهولة والمكافآت</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card animate-on-scroll">
+        <div class="feature-icon gold"><i class="fas fa-wallet"></i></div>
+        <h3>محفظة رقمية آمنة</h3>
+        <p>محفظة مشفرة بالكامل لحفظ وإدارة عملاتك الرقمية بأمان تام. إرسال واستقبال فوري مع سجل معاملات كامل.</p>
+      </div>
+      <div class="feature-card animate-on-scroll delay-1">
+        <div class="feature-icon green"><i class="fas fa-credit-card"></i></div>
+        <h3>بطاقة رقمية فريدة</h3>
+        <p>كل مستخدم يحصل على بطاقة رقمية بتصميم أنيق برقم فريد ورمز CVV. بطاقتك الخاصة في عالم دينار كوين.</p>
+      </div>
+      <div class="feature-card animate-on-scroll delay-2">
+        <div class="feature-icon blue"><i class="fas fa-users-cog"></i></div>
+        <h3>نظام إحالة مجزي</h3>
+        <p>اربح 0.25 DC عن كل 10 إحالات ناجحة. شارك رمزك الخاص وابنِ شبكتك واحصل على مكافآت مستمرة.</p>
+      </div>
+      <div class="feature-card animate-on-scroll delay-1">
+        <div class="feature-icon gold"><i class="fas fa-chart-bar"></i></div>
+        <h3>لوحة تحكم متقدمة</h3>
+        <p>تابع رصيدك وإحصائياتك ومخططات السوق في الوقت الحقيقي. تحليلات شاملة لأدائك المالي.</p>
+      </div>
+      <div class="feature-card animate-on-scroll delay-2">
+        <div class="feature-icon green"><i class="fas fa-gift"></i></div>
+        <h3>مكافآت يومية</h3>
+        <p>احصل على 0.01 DC كل يوم بمجرد فتح التطبيق. بالإضافة إلى مكافأة ترحيبية 1.0 DC عند التسجيل.</p>
+      </div>
+      <div class="feature-card animate-on-scroll delay-3">
+        <div class="feature-icon blue"><i class="fas fa-mobile-alt"></i></div>
+        <h3>تطبيق PWA متطور</h3>
+        <p>يعمل على جميع الأجهزة — هاتف، تابلت، حاسوب. لا يحتاج تحميل من المتجر، فقط افتح الرابط وابدأ!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="steps-section section-padding" id="howto">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-list-ol"></i> كيف تبدأ</div>
+      <h2>ابدأ في 4 خطوات بسيطة</h2>
+      <p>لا تحتاج خبرة سابقة — سجّل وابدأ فوراً</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card animate-on-scroll">
+        <div class="step-num">١</div>
+        <h3>أنشئ حسابك</h3>
+        <p>سجّل باستخدام بريدك الإلكتروني واحصل فوراً على 1.0 DC كمكافأة ترحيبية مجانية</p>
+      </div>
+      <div class="step-card animate-on-scroll delay-1">
+        <div class="step-connector"></div>
+        <div class="step-num">٢</div>
+        <h3>استلم بطاقتك</h3>
+        <p>احصل على بطاقة رقمية فريدة برقم خاص بك ورمز CVV ومحفظة آمنة</p>
+      </div>
+      <div class="step-card animate-on-scroll delay-2">
+        <div class="step-connector"></div>
+        <div class="step-num">٣</div>
+        <h3>اربح المكافآت</h3>
+        <p>استخدم رمز الإحالة وشاركه مع أصدقائك واحصل على مكافآت يومية</p>
+      </div>
+      <div class="step-card animate-on-scroll delay-3">
+        <div class="step-connector"></div>
+        <div class="step-num">٤</div>
+        <h3>تداول وانمو</h3>
+        <p>أرسل واستقبل العملات، تابع السوق، واستعد للإطلاق الرسمي</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPLY COUNTER -->
+<section class="supply-section section-padding">
+  <div class="container">
+    <div class="supply-content animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-fire"></i> العرض محدود</div>
+      <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--white);margin-top:16px">
+        فقط <span style="color:var(--gold-2)">10 مليون عملة</span> دينار كوين متاحة
+      </h2>
+      <div class="supply-counter" id="mainSupplyCounter">10,000,000</div>
+      <div class="supply-label">عملة DC متاحة للحجز</div>
+      <div class="supply-sub">كل الأرقام تعتمد على قاعدة البيانات الحقيقية — لا أرقام ثابتة أو وهمية.</div>
+      <div class="supply-bar-wrap">
+        <div class="supply-bar">
+          <div class="supply-fill" id="supplyFill" style="width:0%"></div>
+        </div>
+        <div class="supply-stats">
+          <span>تم الحجز: <strong id="supplyUsed" style="color:var(--gold-2)">0%</strong></span>
+          <span>متبقي: <strong id="supplyRemain" style="color:var(--green-3)">100%</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCENTIVES -->
+<section class="section-padding" id="incentives">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-bolt"></i> الحوافز</div>
+      <h2>لماذا يجب أن تسجّل الآن؟</h2>
+      <p>فرص حقيقية للمستخدمين الأوائل لن تتكرر</p>
+    </div>
+    <div class="incentives-grid">
+      <div class="incentive-card featured animate-on-scroll">
+        <div class="incentive-emoji">🏆</div>
+        <h3>كن من الرواد الأوائل</h3>
+        <p>تماماً كما اشترى الناس بيتكوين بسنتات وأصبحت تساوي آلاف الدولارات، دينار كوين يمنحك فرصة مشابهة. سجّل في الفترة التجريبية واحصل على حصتك مجاناً.</p>
+        <div class="incentive-value"><i class="fas fa-gift"></i> 1.0 DC مكافأة فورية</div>
+      </div>
+      <div class="incentive-card animate-on-scroll delay-1">
+        <div class="incentive-emoji">💰</div>
+        <h3>اربح من الإحالات</h3>
+        <p>كل 10 أشخاص تدعوهم = 0.25 DC إضافية. لا حدود! كلما دعوت أكثر، كلما ربحت أكثر. ابنِ شبكتك من الآن.</p>
+        <div class="incentive-value"><i class="fas fa-users"></i> 0.25 DC لكل 10 إحالات</div>
+      </div>
+      <div class="incentive-card animate-on-scroll delay-2">
+        <div class="incentive-emoji">📅</div>
+        <h3>مكافآت يومية مستمرة</h3>
+        <p>فقط افتح التطبيق يومياً واحصل على 0.01 DC مجاناً. بعد شهر = 0.3 DC، بعد سنة = أكثر من 3.6 DC بدون أي استثمار!</p>
+        <div class="incentive-value"><i class="fas fa-calendar-check"></i> 0.01 DC يومياً</div>
+      </div>
+      <div class="incentive-card featured animate-on-scroll delay-3">
+        <div class="incentive-emoji">🚀</div>
+        <h3>مستقبل التداول العربي</h3>
+        <p>عندما يتم توثيق المنصة رسمياً والمصادقة عليها، ستكون من أوائل من يمتلك عملة رقمية عربية حقيقية. فرصة لن تتكرر!</p>
+        <div class="incentive-value"><i class="fas fa-rocket"></i> احجز مكانك الآن</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section-padding" style="background:var(--bg-dark)">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-balance-scale"></i> مقارنة</div>
+      <h2>دينار كوين مقابل العملات الأخرى</h2>
+    </div>
+    <div class="comparison-table animate-on-scroll">
+      <div class="comp-header">
+        <span>الميزة</span>
+        <span style="color:var(--gold-2)">دينار كوين</span>
+        <span style="color:var(--text-3)">عملات أخرى</span>
+      </div>
+      <div class="comp-row"><span>واجهة عربية كاملة</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+      <div class="comp-row"><span>مكافأة ترحيبية مجانية</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+      <div class="comp-row"><span>مكافآت يومية</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+      <div class="comp-row"><span>نظام إحالة مجزي</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-check-circle comp-check"></i></span></div>
+      <div class="comp-row"><span>بطاقة رقمية فريدة</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+      <div class="comp-row"><span>تسجيل سهل بدون تعقيدات</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+      <div class="comp-row"><span>مصممة للسوق العراقي والعربي</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+      <div class="comp-row"><span>سعر ابتدائي منخفض</span><span><i class="fas fa-check-circle comp-check"></i></span><span><i class="fas fa-times-circle comp-x"></i></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-comments"></i> آراء المستخدمين</div>
+      <h2>ماذا يقول مستخدمونا الأوائل؟</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card animate-on-scroll">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"تطبيق رائع وسهل الاستخدام! أعجبني أنه عربي بالكامل ومصمم لنا كعراقيين. سجّلت وحصلت على مكافأتي فوراً!"</div>
+        <div class="testimonial-author"><div class="testimonial-avatar">أ</div><div class="testimonial-info"><div class="name">أحمد م.</div><div class="role">بغداد — مستخدم مبكر</div></div></div>
+      </div>
+      <div class="testimonial-card animate-on-scroll delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"فكرة عبقرية! أخيراً عملة رقمية عربية. نظام الإحالة ممتاز ودعوت أكثر من 30 شخص ومكافآتي مستمرة."</div>
+        <div class="testimonial-author"><div class="testimonial-avatar">س</div><div class="testimonial-info"><div class="name">سارة ح.</div><div class="role">البصرة — مستثمرة</div></div></div>
+      </div>
+      <div class="testimonial-card animate-on-scroll delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"البطاقة الرقمية تصميمها خرافي والمحفظة آمنة جداً. أنتظر الإطلاق الرسمي بفارغ الصبر!"</div>
+        <div class="testimonial-author"><div class="testimonial-avatar">م</div><div class="testimonial-info"><div class="name">محمد ع.</div><div class="role">أربيل — مطوّر</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap-section section-padding" id="roadmap">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-map-marked-alt"></i> خارطة الطريق</div>
+      <h2>رحلتنا نحو المستقبل</h2>
+    </div>
+    <div class="roadmap-timeline">
+      <div class="roadmap-line"></div>
+      <div class="roadmap-item done animate-on-scroll">
+        <div class="roadmap-dot"><i class="fas fa-check"></i></div>
+        <div class="roadmap-content">
+          <h3>المرحلة الأولى — التأسيس</h3>
+          <p>تطوير المنصة الأساسية، نظام المحفظة الرقمية، البطاقة الذكية، ونظام الإحالة</p>
+          <span class="roadmap-tag done">✓ مكتمل</span>
+        </div>
+      </div>
+      <div class="roadmap-item active animate-on-scroll delay-1">
+        <div class="roadmap-dot"><i class="fas fa-flask"></i></div>
+        <div class="roadmap-content">
+          <h3>المرحلة الثانية — الفترة التجريبية (الآن)</h3>
+          <p>إطلاق النسخة التجريبية، استقطاب المستخدمين الأوائل، جمع الملاحظات، وتحسين المنصة</p>
+          <span class="roadmap-tag current">● جاري الآن</span>
+        </div>
+      </div>
+      <div class="roadmap-item animate-on-scroll delay-2">
+        <div class="roadmap-dot"><i class="fas fa-certificate"></i></div>
+        <div class="roadmap-content">
+          <h3>المرحلة الثالثة — التوثيق والمصادقة</h3>
+          <p>تقديم طلبات التوثيق الرسمي، الحصول على التراخيص اللازمة، ومراجعة الأمان</p>
+          <span class="roadmap-tag upcoming">قريباً</span>
+        </div>
+      </div>
+      <div class="roadmap-item animate-on-scroll delay-3">
+        <div class="roadmap-dot"><i class="fas fa-rocket"></i></div>
+        <div class="roadmap-content">
+          <h3>المرحلة الرابعة — الإطلاق الرسمي</h3>
+          <p>إطلاق المنصة رسمياً، فتح التداول الفعلي، إدراج العملة في منصات التداول</p>
+          <span class="roadmap-tag upcoming">المستقبل</span>
+        </div>
+      </div>
+      <div class="roadmap-item animate-on-scroll delay-4">
+        <div class="roadmap-dot"><i class="fas fa-globe"></i></div>
+        <div class="roadmap-content">
+          <h3>المرحلة الخامسة — التوسع العالمي</h3>
+          <p>التوسع في الأسواق العربية والعالمية، شراكات استراتيجية، وتطوير نظام بيئي متكامل</p>
+          <span class="roadmap-tag upcoming">المستقبل</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="terms-section section-padding" id="terms">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-tag"><i class="fas fa-file-contract"></i> الشروط والأحكام</div>
+      <h2>الشروط والموافقات</h2>
+      <p>يُرجى قراءة الشروط التالية بعناية قبل استخدام المنصة</p>
+    </div>
+    <div class="terms-grid">
+      <div class="terms-block animate-on-scroll">
+        <h3><i class="fas fa-gavel"></i> شروط الاستخدام</h3>
+        <ul class="terms-list">
+          <li>المنصة حالياً في مرحلة تجريبية (BETA) ولم تحصل على توثيق أو مصادقة رسمية بعد</li>
+          <li>الاشتراك في المنصة يعني الموافقة على جميع الشروط والأحكام المذكورة</li>
+          <li>دينار كوين المكتسبة خلال الفترة التجريبية قد تخضع لتعديلات عند الإطلاق الرسمي</li>
+          <li>يحق للمنصة تعديل الأسعار والمكافآت في أي وقت بناءً على ظروف السوق</li>
+          <li>المستخدم مسؤول عن حماية بيانات حسابه وعدم مشاركتها مع أي طرف آخر</li>
+          <li>يجب أن يكون عمر المستخدم 18 سنة فأكثر للتسجيل في المنصة</li>
+          <li>يمنع استخدام المنصة لأي أنشطة غير قانونية أو مخالفة</li>
+        </ul>
+      </div>
+      <div class="terms-block animate-on-scroll delay-1">
+        <h3><i class="fas fa-exclamation-circle"></i> إخلاء المسؤولية</h3>
+        <ul class="terms-list">
+          <li>المنصة لا تضمن أي عوائد مالية أو أرباح من استخدام العملة الرقمية</li>
+          <li>قيمة دينار كوين قد تتغير أو تتقلب ولا يوجد ضمان لاستقرار السعر</li>
+          <li>الاستثمار في العملات الرقمية ينطوي على مخاطر — لا تستثمر أكثر مما يمكنك تحمّل خسارته</li>
+          <li>المنصة غير مسؤولة عن أي خسائر ناتجة عن استخدام المنصة في الفترة التجريبية</li>
+          <li>في حالة عدم الحصول على التوثيق الرسمي، يحق للمنصة إيقاف العمليات</li>
+          <li>جميع البيانات الشخصية محمية ولن يتم مشاركتها مع أطراف خارجية</li>
+          <li>بالتسجيل، يوافق المستخدم على استلام إشعارات وتحديثات من المنصة</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section section-padding" id="download">
+  <div class="container">
+    <div class="cta-content animate-on-scroll">
+      <h2>🚀 لا تفوّت الفرصة — سجّل الآن!</h2>
+      <p>
+        كن من أوائل من يمتلك عملة دينار كوين الرقمية العربية. احصل على مكافأة ترحيبية فورية
+        واحجز مكانك قبل نفاد المليون عملة المتاحة.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://example.com/app" class="btn-primary" style="font-size:1.1rem;padding:18px 48px">
+          <i class="fas fa-download"></i> حمّل التطبيق الآن
+        </a>
+        <a href="https://example.com/app" class="btn-secondary" style="font-size:1.1rem;padding:18px 48px">
+          <i class="fas fa-globe"></i> افتح المنصة
+        </a>
+      </div>
+      <div class="cta-trust">
+        <div class="trust-item"><i class="fas fa-check-circle"></i> تسجيل مجاني</div>
+        <div class="trust-item"><i class="fas fa-check-circle"></i> مكافأة 1.0 DC فوراً</div>
+        <div class="trust-item"><i class="fas fa-check-circle"></i> آمن ومشفر</div>
+        <div class="trust-item"><i class="fas fa-check-circle"></i> عربي 100%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:8px">
+          <div class="nav-logo-icon">DC</div>
+          <div class="nav-logo-text">دينار <span>كوين</span></div>
+        </div>
+        <p>أول عملة رقمية عراقية وعربية. مشروع طموح يهدف لإثبات الوجود العربي في العالم الرقمي. صنع بحب في العراق 🇮🇶</p>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#about">عن المشروع</a></li>
+          <li><a href="#features">المميزات</a></li>
+          <li><a href="#roadmap">خارطة الطريق</a></li>
+          <li><a href="#download">تحميل التطبيق</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>المساعدة</h4>
+        <ul>
+          <li><a href="#terms">الشروط والأحكام</a></li>
+          <li><a href="#notice">سياسة الخصوصية</a></li>
+          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-envelope" style="margin-left:6px"></i> support@dinarcoin.iq</a></li>
+          <li><a href="#"><i class="fab fa-telegram" style="margin-left:6px"></i> @DinarCoin</a></li>
+          <li><a href="#"><i class="fab fa-instagram" style="margin-left:6px"></i> @DinarCoin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 دينار كوين — Digital Creativity Company. جميع الحقوق محفوظة.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+<script>
+// ======= NAVBAR SCROLL =======
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ======= MOBILE MENU =======
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('active');
+}
+
+// ======= SCROLL ANIMATIONS =======
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// ======= BETA MODAL LOGIC =======
+function showBetaModal() {
+  document.getElementById('betaModal').style.display = 'flex';
+}
+function closeBetaModal() {
+  document.getElementById('betaModal').style.display = 'none';
+  localStorage.setItem('betaModalDismissed', 'true');
+}
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('betaModalDismissed')) {
+    setTimeout(showBetaModal, 600);
+  }
+});
+
+// ======= FIREBASE CONFIG =======
+const firebaseConfig = {
+  apiKey: "AIzaSyDGpAHia_wEmrhnmYjrPf1n1TrAzwEMiAI",
+  authDomain: "messageemeapp.firebaseapp.com",
+  databaseURL: "https://messageemeapp-default-rtdb.firebaseio.com",
+  projectId: "messageemeapp",
+  storageBucket: "messageemeapp.appspot.com",
+  messagingSenderId: "255034474844",
+  appId: "1:255034474844:web:5e3b7a6bc4b2fb94cc4199",
+  measurementId: "G-4QBEWRC583"
+};
+if (!firebase.apps?.length) firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+// ======= DYNAMIC NUMBERS =======
+function updateLandingStats(stats) {
+  // Safe fallback values
+  const totalSupply = Number(stats.total_supply) || 10000000;
+  const remainingSupply = Number(stats.remaining_supply) || (totalSupply - (Number(stats.distributed_coins) || 0));
+  const distributedCoins = Number(stats.distributed_coins) || 0;
+  const totalUsers = Number(stats.total_users) || 0;
+  const coinPrice = Number(stats.coin_price) || 0;
+  const volume = Number(stats.volume) || 0;
+  const referralReward = typeof stats.referral_reward !== 'undefined' ? stats.referral_reward : 0;
+  const dailyReward = typeof stats.daily_reward !== 'undefined' ? stats.daily_reward : 0;
+  const welcomeReward = typeof stats.welcome_reward !== 'undefined' ? stats.welcome_reward : 0;
+
+  // Total supply
+  if (document.getElementById('mainSupplyCounter')) document.getElementById('mainSupplyCounter').textContent = totalSupply.toLocaleString();
+  if (document.getElementById('heroTotalSupply')) document.getElementById('heroTotalSupply').textContent = totalSupply.toLocaleString();
+  if (document.getElementById('supplyCounter')) document.getElementById('supplyCounter').textContent = totalSupply.toLocaleString();
+  if (document.getElementById('tickerSupply')) document.getElementById('tickerSupply').textContent = remainingSupply.toLocaleString() + ' DC';
+  // Users
+  if (document.getElementById('heroUsers')) document.getElementById('heroUsers').textContent = totalUsers.toLocaleString();
+  if (document.getElementById('tickerUsers')) document.getElementById('tickerUsers').textContent = totalUsers.toLocaleString() + '+';
+  // Price
+  if (document.getElementById('heroCoinPrice')) document.getElementById('heroCoinPrice').textContent = coinPrice ? coinPrice.toLocaleString() + ' IQD' : 'غير متوفر';
+  if (document.getElementById('heroFloatingPrice')) document.getElementById('heroFloatingPrice').textContent = coinPrice ? coinPrice.toLocaleString() + ' IQD' : 'غير متوفر';
+  if (document.getElementById('tickerPrice')) document.getElementById('tickerPrice').textContent = coinPrice ? coinPrice.toLocaleString() : 'غير متوفر';
+  // Market cap
+  if (document.getElementById('tickerMarketCap')) {
+    const marketCap = coinPrice * totalSupply;
+    document.getElementById('tickerMarketCap').textContent = marketCap ? (marketCap / 1000000000).toFixed(1) + ' B IQD' : 'غير متوفر';
+  }
+  // Volume
+  if (document.getElementById('tickerVolume')) document.getElementById('tickerVolume').textContent = volume ? volume.toLocaleString() + 'K' : '0K';
+  // Referral reward
+  if (document.getElementById('tickerReferral')) document.getElementById('tickerReferral').textContent = referralReward + ' DC';
+  // Daily reward
+  if (document.getElementById('tickerDaily')) document.getElementById('tickerDaily').textContent = dailyReward + ' DC';
+  // Floating reward
+  if (document.getElementById('heroFloatingReward')) document.getElementById('heroFloatingReward').textContent = '+' + welcomeReward + ' DC مجاناً';
+  // Supply bar
+  const usedPercent = totalSupply ? ((distributedCoins / totalSupply) * 100).toFixed(1) : '0';
+  const remainPercent = (100 - parseFloat(usedPercent)).toFixed(1);
+  if (document.getElementById('supplyFill')) document.getElementById('supplyFill').style.width = usedPercent + '%';
+  if (document.getElementById('supplyUsed')) document.getElementById('supplyUsed').textContent = usedPercent + '%';
+  if (document.getElementById('supplyRemain')) document.getElementById('supplyRemain').textContent = remainPercent + '%';
+}
+
+// ======= REWARD LOGIC (DECREASING) =======
+function calculateDynamicRewards(users, supply) {
+  // Example: reward decreases as users grow
+  const base = 1.0;
+  const min = 0.1;
+  const maxUsers = 100000;
+  const reward = Math.max(min, base * (1 - (users / maxUsers)));
+  return reward.toFixed(2);
+}
+
+
+// ======= FETCH DATABASE STATS =======
+function fetchLandingStats() {
+  database.ref('global_stats').on('value', snap => {
+    const stats = snap.val() || {};
+    // Dynamic reward calculation
+    stats.welcome_reward = calculateDynamicRewards(stats.total_users || 0, stats.total_supply || 10000000);
+    updateLandingStats(stats);
+  });
+}
+fetchLandingStats();
+
+// ======= FETCH ALL USERS (REAL-TIME) =======
+function fetchAllUsers(callback) {
+  database.ref('users').on('value', snap => {
+    const users = snap.val() || {};
+    // You can use this array for display, admin, stats, etc.
+    const usersArr = Object.entries(users).map(([uid, data]) => ({ uid, ...data }));
+    if (typeof callback === 'function') callback(usersArr);
+    // Example: log to console
+    // console.log('All users:', usersArr);
+  });
+}
+
+// ======= FETCH ALL TRANSACTIONS (REAL-TIME) =======
+function fetchAllTransactions(callback) {
+  database.ref('transactions').on('value', snap => {
+    const txs = snap.val() || {};
+    // You can use this array for display, admin, stats, etc.
+    const txArr = Object.entries(txs).map(([txid, data]) => ({ txid, ...data }));
+    if (typeof callback === 'function') callback(txArr);
+    // Example: log to console
+    // console.log('All transactions:', txArr);
+  });
+}
+
+// Example usage: fetch and log all users and transactions
+// fetchAllUsers(users => console.log('All users:', users));
+// fetchAllTransactions(txs => console.log('All transactions:', txs));
+
+// ======= SMOOTH SCROLL =======
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
